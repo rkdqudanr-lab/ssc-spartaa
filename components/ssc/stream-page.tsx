@@ -130,7 +130,7 @@ export default function StreamPage({
 
       {/* Shared Components */}
       <div id="testimonials">
-        <Testimonials testimonials={content.testimonials} reviewUrl={reviewUrl} bgImage={bgImage} />
+        <Testimonials campusName={campusName} testimonials={content.testimonials} reviewUrl={reviewUrl} bgImage={bgImage} />
       </div>
       
       <div id="curriculum">
