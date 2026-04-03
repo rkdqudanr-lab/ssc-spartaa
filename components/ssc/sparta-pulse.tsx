@@ -64,12 +64,12 @@ export function SpartaPulse() {
             </div>
 
             {/* Massive Digital Clock - Sharp Apple Typography */}
-            <div className="w-full text-center flex flex-col items-center justify-center mb-14">
-               <div className="flex items-baseline justify-center font-sans tracking-[-0.06em]">
-                  <span className="text-[6.5rem] md:text-[13rem] lg:text-[18rem] font-bold text-white leading-[0.8] tabular-nums">
+            <div className="w-full text-center flex flex-col items-center justify-center mb-14 px-8 md:px-16">
+               <div className="flex items-baseline justify-center font-sans tracking-[-0.06em] w-full max-w-6xl mx-auto">
+                  <span className="text-[12vw] md:text-[14vw] lg:text-[12.5rem] font-bold text-white leading-[0.8] tabular-nums">
                     {time.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' })}
                   </span>
-                  <span className="text-[2rem] md:text-[5rem] lg:text-[7rem] font-medium text-[#0071E3] ml-1 md:ml-3 opacity-90 tabular-nums">
+                  <span className="text-[3vw] md:text-[4vw] lg:text-[3.5rem] font-medium text-[#0071E3] ml-1 md:ml-3 opacity-90 tabular-nums">
                     .{formatMs(time)}
                   </span>
                </div>

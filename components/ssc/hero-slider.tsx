@@ -152,11 +152,11 @@ export function HeroSlider({ slides: slidesProp }: { slides?: typeof defaultSlid
                     >
                       {slide.title}
                     </h1>
-                    <p className="text-[#434345] text-lg sm:text-xl md:text-2xl font-medium tracking-tight mb-4">
+                    <p className="text-[#434345] text-lg sm:text-xl md:text-2xl font-medium tracking-tight mb-4 whitespace-pre-line break-keep">
                       {slide.subtitle}
                     </p>
                     {slide.description && (
-                      <p className="text-[#86868B] text-sm sm:text-base md:text-lg mb-8 leading-relaxed max-w-xl font-medium tracking-tight">
+                      <p className="text-[#86868B] text-sm sm:text-base md:text-lg mb-8 leading-relaxed max-w-xl font-medium tracking-tight whitespace-pre-line break-keep">
                         {slide.description}
                       </p>
                     )}
