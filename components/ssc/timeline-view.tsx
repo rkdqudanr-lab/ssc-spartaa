@@ -16,7 +16,7 @@ export function TimelineView() {
   return (
     <section id="timeline" className="pb-24 md:pb-32 pt-0 bg-[#F5F5F7] overflow-hidden">
       <div className="max-w-[72rem] mx-auto px-6 sm:px-8">
-        <div className="mb-20 md:mb-28 text-center fade-in-up">
+        <div className="mb-12 md:mb-16 text-center fade-in-up">
             <p className="text-[#0071E3] text-[11px] sm:text-xs font-extrabold tracking-[0.3em] uppercase mb-6 opacity-80">Daily Workflow</p>
             <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-[#1D1D1F] tracking-tighter mb-8 leading-[1.05] text-balance">
               가장 치열한 몰입,<br />
@@ -28,7 +28,7 @@ export function TimelineView() {
             </p>
         </div>
 
-        <div className="relative mt-20 max-w-3xl mx-auto">
+        <div className="relative mt-12 md:mt-20 max-w-3xl mx-auto">
           {/* Vertical Line */}
           <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] bg-black/[0.05] -translate-x-1/2" />
           
@@ -63,20 +63,20 @@ export function TimelineView() {
               </motion.div>
             ))}
           </div>
-
-          {/* Flexible Schedule Note */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="mt-16 text-center"
-          >
-            <p className="text-[#86868B] text-sm font-semibold flex items-center justify-center gap-2">
-              <span className="w-1 h-1 rounded-full bg-[#0071E3]" />
-              등원 및 하원 시간은 수험생의 거주지에 따라 유동적으로 운영됩니다.
-            </p>
-          </motion.div>
         </div>
+
+        {/* Flexible Schedule Note - Moved outside the vertical line container to avoid overlap */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="mt-24 text-center"
+        >
+          <p className="text-[#86868B] text-sm font-semibold flex items-center justify-center gap-2">
+            <span className="w-1 h-1 rounded-full bg-[#0071E3]" />
+            등원 및 하원 시간은 수험생의 거주지에 따라 유동적으로 운영됩니다.
+          </p>
+        </motion.div>
       </div>
     </section>
   )
