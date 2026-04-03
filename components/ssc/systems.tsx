@@ -47,7 +47,7 @@ export function Systems({ systems = COMMON_SYSTEMS }: SystemsProps) {
             System
           </p>
           <h2 className="text-3xl md:text-5xl font-semibold text-[#1D1D1F] tracking-tighter mb-4 break-keep">
-             <RhythmicText text="초격차를 만드는|관리 시스템" />
+             <RhythmicText text="초격차를 만드는|관리 시스템" inline />
           </h2>
           <div className="text-[#86868B] text-base md:text-lg font-medium max-w-lg mx-auto leading-relaxed break-keep">
             <RhythmicText text="SSC스파르타만의 압도적인 관리 노하우.|6가지 핵심 시스템으로 당신의 한계를 끌어올립니다." />
@@ -67,7 +67,7 @@ export function Systems({ systems = COMMON_SYSTEMS }: SystemsProps) {
                 </div>
                 <div>
                   <h3 className="text-[19px] font-semibold text-[#1D1D1F] tracking-tight mb-2.5 break-keep">
-                    <RhythmicText text={s.title} />
+                    <RhythmicText text={s.title} inline />
                   </h3>
                   <div className="text-[15px] font-medium text-[#86868B] leading-relaxed break-keep">
                     <RhythmicText text={s.description} />

@@ -27,9 +27,8 @@ export function Differentiation() {
 
   return (
     <section
-      className="bg-background-blue-soft py-20 md:py-28"
+      className="bg-[#F5F5F7] py-20 md:py-28"
       ref={ref}
-      style={{ backgroundColor: '#EEF2FF' }}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Heading */}
@@ -57,7 +56,7 @@ export function Differentiation() {
 
               <div className="md:text-center">
                 <h3 className="text-[17px] font-semibold text-[#1D1D1F] tracking-tight mb-2">
-                  <RhythmicText text={f.title} />
+                  <RhythmicText text={f.title} inline />
                 </h3>
                 <div className="text-sm text-text-secondary leading-relaxed break-keep">
                    <RhythmicText text={f.description} />

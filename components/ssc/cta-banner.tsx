@@ -26,7 +26,7 @@ export function CtaBanner({
             1일 무료 체험 예약
           </span>
           <h2 className="text-[#1D1D1F] text-3xl md:text-5xl font-semibold tracking-tighter mb-4 leading-tight break-keep">
-            <RhythmicText text="압도적인 차이를|직접 경험해 보세요." />
+            <RhythmicText text="압도적인 차이를|직접 경험해 보세요." inline />
           </h2>
           <div className="text-[#86868B] text-base md:text-lg font-medium leading-relaxed mb-10 max-w-lg mx-auto break-keep">
             <RhythmicText text="원하는 방법으로 방문 예약을 남겨주시면,|친절하게 센터 안내 및|무료 체험을 도와드립니다." />

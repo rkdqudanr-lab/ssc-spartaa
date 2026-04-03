@@ -70,7 +70,7 @@ export function Facilities({ facilities }: { facilities?: FacilityItem[] } = {})
         <div className="mb-16 text-center fade-in-up">
           <p className="text-[#0071E3] text-xs font-bold tracking-[0.3em] uppercase mb-4">World-Class Environment</p>
           <h2 className="text-[#1D1D1F] text-3xl md:text-5xl font-semibold tracking-tighter mb-8 break-keep leading-tight">
-            <RhythmicText text="공부가 유지될 수밖에 없는|압도적 몰입의 공간" />
+            <RhythmicText text="공부가 유지될 수밖에 없는|압도적 몰입의 공간" inline />
           </h2>
           <div className="text-[#86868B] text-base md:text-xl font-medium max-w-2xl mx-auto leading-relaxed break-keep">
             <RhythmicText text="의지에만 맡기지 않습니다.|완벽하게 설계된 환경이 당신을 합격으로|이끄는 가장 강력한 엔진이 됩니다." />
