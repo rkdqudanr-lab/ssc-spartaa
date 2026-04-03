@@ -16,6 +16,7 @@ import {
 
 import { useScrollReveal } from '@/hooks/use-scroll-reveal'
 import { StreamSystem, COMMON_SYSTEMS } from '@/lib/stream-content'
+import { RhythmicText } from '@/components/ui/rhythmic-text'
 
 const iconMap: Record<string, LucideIcon> = {
   Clock,
@@ -45,13 +46,12 @@ export function Systems({ systems = COMMON_SYSTEMS }: SystemsProps) {
           <p className="text-[#0071E3] text-[11px] sm:text-xs font-bold tracking-[0.2em] uppercase mb-4">
             System
           </p>
-          <h2 className="text-3xl md:text-5xl font-semibold text-[#1D1D1F] tracking-tighter mb-4 whitespace-pre-line break-keep">
-            초격차를 만드는 관리 시스템
+          <h2 className="text-3xl md:text-5xl font-semibold text-[#1D1D1F] tracking-tighter mb-4 break-keep">
+             <RhythmicText text="초격차를 만드는|관리 시스템" />
           </h2>
-          <p className="text-[#86868B] text-base md:text-lg font-medium max-w-lg mx-auto leading-relaxed whitespace-pre-line break-keep">
-            SSC스파르타만의 압도적인 관리 노하우.{'\n'}
-            6가지 핵심 시스템으로 당신의 한계를 끌어올립니다.
-          </p>
+          <div className="text-[#86868B] text-base md:text-lg font-medium max-w-lg mx-auto leading-relaxed break-keep">
+            <RhythmicText text="SSC스파르타만의 압도적인 관리 노하우.|6가지 핵심 시스템으로 당신의 한계를 끌어올립니다." />
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -66,12 +66,12 @@ export function Systems({ systems = COMMON_SYSTEMS }: SystemsProps) {
                   {Icon && <Icon size={24} className="text-[#0071E3]" strokeWidth={1.5} />}
                 </div>
                 <div>
-                  <h3 className="text-[19px] font-semibold text-[#1D1D1F] tracking-tight mb-2.5 whitespace-pre-line break-keep">
-                    {s.title}
+                  <h3 className="text-[19px] font-semibold text-[#1D1D1F] tracking-tight mb-2.5 break-keep">
+                    <RhythmicText text={s.title} />
                   </h3>
-                  <p className="text-[15px] font-medium text-[#86868B] leading-relaxed whitespace-pre-line break-keep">
-                    {s.description}
-                  </p>
+                  <div className="text-[15px] font-medium text-[#86868B] leading-relaxed break-keep">
+                    <RhythmicText text={s.description} />
+                  </div>
                 </div>
               </div>
             )

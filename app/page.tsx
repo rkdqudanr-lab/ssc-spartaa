@@ -10,6 +10,7 @@ import ComparisonSection from '@/components/ssc/comparison-section'
 import CommitmentSection from '@/components/ssc/commitment-section'
 import { SpartaPulse } from '@/components/ssc/sparta-pulse'
 import { Footer } from '@/components/ssc/footer'
+import { RhythmicText } from '@/components/ui/rhythmic-text'
 
 /** 폴더에서 첫 번째 이미지 경로를 반환. 없으면 null. */
 function getFirstImage(campus: string): string | null {
@@ -89,30 +90,31 @@ export default function SelectLocation() {
           </BlurFade>
           
           <BlurFade delay={0.2} yOffset={20}>
-            <h1 className="text-[#1D1D1F] text-[2.5rem] sm:text-5xl md:text-7xl font-semibold leading-[1.05] tracking-tighter mb-6" style={{ wordBreak: 'keep-all' }}>
-              완벽한 통제,<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1D1D1F] via-[#434345] to-[#86868B]">
-                그 이상의 결과.
-              </span>
+            <h1 className="text-[#1D1D1F] text-[2.5rem] sm:text-5xl md:text-7xl font-semibold leading-[1.1] tracking-tighter mb-6">
+              <RhythmicText 
+                text="완벽한 통제,|그 이상의 결과."
+                className="inline-block"
+              />
             </h1>
           </BlurFade>
           
           <BlurFade delay={0.3} yOffset={20}>
-            <p className="text-[#86868B] text-sm sm:text-base md:text-xl font-medium max-w-2xl mx-auto leading-relaxed tracking-tight">
-              가장 본질적인 것에 집중하십시오.<br className="hidden sm:block"/> 
-              압도적인 집중 환경과 노량진 시스템이 당신의 단기 합격을 증명합니다.
-            </p>
+            <div className="text-[#86868B] text-sm sm:text-base md:text-xl font-medium max-w-2xl mx-auto leading-relaxed tracking-tight">
+              <RhythmicText 
+                text="가장 본질적인 것에 집중하십시오.|압도적인 집중 환경과 노량진 시스템이|당신의 단기 합격을 증명합니다."
+              />
+            </div>
           </BlurFade>
         </header>
 
         {/* Categories badge strip */}
         <div className="px-4 mb-20 md:mb-24">
           <BlurFade delay={0.4} yOffset={10}>
-            <div className="max-w-2xl mx-auto flex flex-wrap justify-center gap-2 sm:gap-4">
+            <div className="max-w-2xl mx-auto grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-3 sm:gap-4">
               {programs.map((p) => (
                 <div
                   key={p}
-                  className="px-5 py-2 rounded-full text-[11px] sm:text-xs font-semibold uppercase tracking-widest border border-black/[0.05] bg-white text-[#1D1D1F] shadow-sm hover:shadow-md hover:-translate-y-[1px] transition-all duration-300 cursor-default"
+                  className="px-5 py-3.5 sm:py-2 rounded-2xl sm:rounded-full text-[11px] sm:text-xs font-bold sm:font-semibold uppercase tracking-widest border border-black/[0.05] bg-white text-[#1D1D1F] shadow-sm hover:shadow-md hover:-translate-y-[1px] transition-all duration-300 cursor-default flex items-center justify-center text-center"
                 >
                   {p}
                 </div>
@@ -178,7 +180,9 @@ export default function SelectLocation() {
                             {loc.highlights.map((h, i) => (
                               <li key={i} className="flex items-start gap-2">
                                 <span className="text-[#86868B] mt-[2px] text-[10px]">✦</span>
-                                <span className="text-[#434345] text-xs sm:text-sm font-medium tracking-tight leading-snug whitespace-pre-line">{h}</span>
+                                <div className="text-[#434345] text-xs sm:text-sm font-medium tracking-tight leading-snug">
+                                  <RhythmicText text={h.replace(/\n/g, '|')} />
+                                </div>
                               </li>
                             ))}
                           </ul>

@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Clock, Users, ArrowRight } from 'lucide-react'
+import { RhythmicText } from '@/components/ui/rhythmic-text'
 
 // 제공해주신 이미지 기반 학원 시간표 데이터
 const TIMETABLE = [
@@ -88,13 +89,16 @@ export function SpartaPulse() {
                     exit={{ opacity: 0, y: -5 }}
                     className="text-center"
                   >
-                    <h3 className="text-2xl md:text-[2.75rem] font-semibold text-white tracking-[-0.03em] mb-6 break-keep leading-[1.1]">
+                    <h3 className="text-2xl md:text-[2.75rem] font-semibold text-white tracking-[-0.03em] mb-6 leading-[1.2]">
                       {activeStep ? (
-                        <> 지금 이 순간, 스파르타 캠퍼스 전우들은<br /> 
-                           <span className="text-[#0071E3] bg-[#0071E3]/10 px-4 py-1 rounded-[12px] inline-block mt-2">{activeStep.label}</span>
-                        </>
+                        <div className="flex flex-col items-center">
+                           <RhythmicText text="지금 이 순간,|스파르타 캠퍼스 전우들은" />
+                           <span className="text-[#0071E3] bg-[#0071E3]/10 px-4 py-2 rounded-[12px] inline-block mt-4 text-[0.8em]">
+                             <RhythmicText text={activeStep.label.replace(':', '|\n:')} />
+                           </span>
+                        </div>
                       ) : (
-                        "스파르타는 지금 내일의 더 강력한 몰입을 준비하고 있습니다."
+                        <RhythmicText text="스파르타는 지금|내일의 더 강력한 몰입을|준비하고 있습니다." />
                       )}
                     </h3>
                     <div className="inline-flex items-center gap-4 px-5 py-2.5 rounded-full bg-white/[0.04] border border-white/[0.1] text-[#86868B] text-sm md:text-base font-semibold tracking-tight">
@@ -113,10 +117,10 @@ export function SpartaPulse() {
             >
                <a 
                  href="#cta" 
-                 className="group relative inline-flex items-center gap-3 px-12 py-5 bg-[#ffffff] text-[#000000] rounded-full text-lg font-bold shadow-[0_10px_30px_rgba(255,255,255,0.1)] hover:shadow-[0_20px_50px_rgba(255,255,255,0.2)] transition-all"
+                 className="group relative inline-flex items-center gap-3 px-10 py-5 bg-[#ffffff] text-[#000000] rounded-full text-lg font-bold shadow-[0_10px_30px_rgba(255,255,255,0.1)] hover:shadow-[0_20px_50px_rgba(255,255,255,0.2)] transition-all break-keep"
                >
-                 당신의 자리를 지금 확보하세요
-                 <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
+                 <RhythmicText text="당신의 자리를|지금 확보하세요" className="md:inline" />
+                 <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform flex-shrink-0" />
                </a>
             </motion.div>
           </div>

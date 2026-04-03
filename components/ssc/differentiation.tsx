@@ -2,6 +2,7 @@
 
 import { useScrollReveal } from '@/hooks/use-scroll-reveal'
 import { Shield, BarChart3, Users } from 'lucide-react'
+import { RhythmicText } from '@/components/ui/rhythmic-text'
 
 const features = [
   {
@@ -36,10 +37,9 @@ export function Differentiation() {
           <h2 className="text-3xl md:text-4xl font-semibold text-[#1D1D1F] tracking-tighter mb-4 leading-tight">
             서울까지 안 가도 됩니다
           </h2>
-          <p className="text-text-secondary leading-relaxed max-w-2xl mx-auto break-keep">
-            노량진 커리큘럼 그대로, 강원도 밀착 관리로 완성하는<br className="hidden md:block" />
-            SSC 스파르타만의 압도적인 합격 관리 시스템
-          </p>
+          <div className="text-text-secondary leading-relaxed max-w-2xl mx-auto break-keep">
+            <RhythmicText text="노량진 커리큘럼 그대로, 강원도 밀착 관리로 완성하는|SSC 스파르타만의 압도적인 합격 관리 시스템" />
+          </div>
         </div>
 
         {/* Feature cards */}
@@ -56,12 +56,12 @@ export function Differentiation() {
               </div>
 
               <div className="md:text-center">
-                <h3 className="text-[17px] font-semibold text-[#1D1D1F] tracking-tight mb-2 whitespace-pre-line">
-                  {f.title}
+                <h3 className="text-[17px] font-semibold text-[#1D1D1F] tracking-tight mb-2">
+                  <RhythmicText text={f.title} />
                 </h3>
-                <p className="text-sm text-text-secondary leading-relaxed whitespace-pre-line break-keep">
-                  {f.description}
-                </p>
+                <div className="text-sm text-text-secondary leading-relaxed break-keep">
+                   <RhythmicText text={f.description} />
+                </div>
               </div>
             </div>
           ))}

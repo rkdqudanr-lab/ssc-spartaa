@@ -21,6 +21,7 @@ import { FacilityComparison } from '@/components/ssc/facility-comparison'
 import { BeforeAfterSwipe } from '@/components/ssc/before-after-swipe'
 import { streamContents, StreamId } from '@/lib/stream-content'
 import { CAMPUS_CONFIG } from '@/lib/campus-config'
+import { RhythmicText } from '@/components/ui/rhythmic-text'
 import BlurFade from '@/components/ui/blur-fade'
 
 export default function StreamPage({
@@ -90,22 +91,22 @@ export default function StreamPage({
           </BlurFade>
           
           <BlurFade delay={0.3} yOffset={20}>
-            <h1 className="text-[#1D1D1F] text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.2] tracking-tighter mb-6 whitespace-pre-line break-keep">
-              {content.hero.title}
+            <h1 className="text-[#1D1D1F] text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.2] tracking-tighter mb-6">
+              <RhythmicText text={content.hero.title} />
             </h1>
           </BlurFade>
 
           <BlurFade delay={0.4} yOffset={20}>
-            <p className="text-[#434345] text-lg sm:text-xl font-medium tracking-tight mb-4 whitespace-pre-line break-keep">
-              {content.hero.subtitle}
-            </p>
+            <div className="text-[#434345] text-lg sm:text-xl font-medium tracking-tight mb-4">
+              <RhythmicText text={content.hero.subtitle} />
+            </div>
           </BlurFade>
 
           {content.hero.description && (
             <BlurFade delay={0.5} yOffset={20}>
-               <p className="text-[#86868B] text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-medium tracking-tight whitespace-pre-line break-keep">
-                {content.hero.description}
-               </p>
+               <div className="text-[#86868B] text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-medium tracking-tight">
+                <RhythmicText text={content.hero.description} />
+               </div>
             </BlurFade>
           )}
 

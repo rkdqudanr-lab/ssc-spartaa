@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useScrollReveal } from '@/hooks/use-scroll-reveal'
 import { Plus, Minus } from 'lucide-react'
+import { RhythmicText } from '@/components/ui/rhythmic-text'
 
 const categories = [
   { id: 'all', label: '전체' },
@@ -109,9 +110,9 @@ export function Faq({ customFaqs }: FaqProps) {
                       onClick={() => setOpen(isOpen ? null : i)}
                       aria-expanded={isOpen}
                     >
-                      <span className={`text-[15px] sm:text-base font-bold tracking-tight leading-snug transition-colors ${isOpen ? 'text-[#0071E3]' : 'text-[#1D1D1F]'}`}>
-                        {faq.q}
-                      </span>
+                      <div className={`text-[15px] sm:text-base font-bold tracking-tight leading-snug transition-colors ${isOpen ? 'text-[#0071E3]' : 'text-[#1D1D1F]'}`}>
+                        <RhythmicText text={faq.q} />
+                      </div>
                       <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all shrink-0 ${isOpen ? 'bg-[#0071E3] text-white rotate-180' : 'bg-black/5 text-[#86868B]'}`}>
                         {isOpen ? (
                           <Minus size={16} strokeWidth={3} />
@@ -130,7 +131,9 @@ export function Faq({ customFaqs }: FaqProps) {
                           className="overflow-hidden"
                         >
                           <div className="px-8 pb-8 pt-2 border-t border-black/5 mx-4">
-                            <p className="text-[14px] sm:text-[15px] font-medium text-[#434345] leading-relaxed pt-4 whitespace-pre-line">{faq.a}</p>
+                            <div className="text-[14px] sm:text-[15px] font-medium text-[#434345] leading-relaxed pt-4 max-w-[42rem]">
+                              <RhythmicText text={faq.a} />
+                            </div>
                           </div>
                         </motion.div>
                       )}

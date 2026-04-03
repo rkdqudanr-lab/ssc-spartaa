@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Quote } from 'lucide-react'
+import { RhythmicText } from '@/components/ui/rhythmic-text'
 
 export function DirectorMessage() {
   return (
@@ -42,30 +43,13 @@ export function DirectorMessage() {
             viewport={{ once: true }}
           >
             <Quote className="text-[#0071E3] mb-8" size={40} />
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tighter leading-tight mb-8 whitespace-pre-line break-keep">
-              관리는 단순한 통제가 아니라{'\n'}
-              <span className="text-[#0071E3]">학생의 의지가 꺾이지 않도록{'\n'}지켜주는 울타리</span>입니다.
+            <h2 className="text-3xl md:text-4xl font-semibold tracking-tighter leading-tight mb-8 break-keep">
+              <RhythmicText text="관리는 단순한 통제가 아니라|학생의 의지가 꺾이지 않도록|지켜주는 울타리입니다." />
             </h2>
-            <div className="space-y-6 text-white/70 text-base md:text-lg font-medium leading-relaxed tracking-tight whitespace-pre-line break-keep">
-              <p>
-                수험 생활의 실패는{'\n'}
-                머리가 나빠서가 아닙니다.{'\n'}
-                불안함에 못 이겨 스마트폰을 켜는 순간,{'\n'}
-                나른함에 못 이겨 책상을 떠나는{'\n'}
-                그 찰나의 순간들이 모여 실패를 만듭니다.
-              </p>
-              <p>
-                SSC스파르타는{'\n'}
-                여러분의 그 '순간'들을 지킵니다.{'\n'}
-                혼자 가면 외로운 길이지만,{'\n'}
-                철저한 시스템 안에서 함께 가면{'\n'}
-                반드시 합격이라는 결승선에 도달할 수 있습니다.
-              </p>
-              <p>
-                충주, 원주, 춘천 캠퍼스의 모든 코멘터들이{'\n'}
-                여러분의 인생을 건 도전을{'\n'}
-                가장 가까이에서 응원하겠습니다.
-              </p>
+            <div className="space-y-6 text-white/70 text-base md:text-lg font-medium leading-relaxed tracking-tight break-keep">
+              <RhythmicText text="수험 생활의 실패는|머리가 나빠서가 아닙니다.|불안함에 못 이겨 스마트폰을 켜는 순간,|나른함에 못 이겨 책상을 떠나는|그 찰나의 순간들이 모여 실패를 만듭니다." />
+              <RhythmicText text="SSC스파르타는|여러분의 그 '순간'들을 지킵니다.|혼자 가면 외로운 길이지만,|철저한 시스템 안에서 함께 가면|반드시 합격이라는 결승선에 도달할 수 있습니다." />
+              <RhythmicText text="충주, 원주, 춘천 캠퍼스의 모든 코멘터들이|여러분의 인생을 건 도전을|가장 가까이에서 응원하겠습니다." />
             </div>
             <div className="mt-12 inline-flex flex-col gap-1">
               <p className="text-white font-bold leading-snug">스파르타 임직원 일동 올림</p>

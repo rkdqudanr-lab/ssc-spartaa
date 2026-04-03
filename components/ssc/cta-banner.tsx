@@ -3,6 +3,7 @@
 import { useScrollReveal } from '@/hooks/use-scroll-reveal'
 import { MapPin, Phone } from 'lucide-react'
 import { CAMPUS_CONFIG } from '@/lib/campus-config'
+import { RhythmicText } from '@/components/ui/rhythmic-text'
 
 interface CtaBannerProps {
   phone?: string
@@ -24,13 +25,12 @@ export function CtaBanner({
           <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#F5F5F7] text-[#86868B] text-xs font-bold tracking-widest uppercase mb-6 border border-black/5">
             1일 무료 체험 예약
           </span>
-          <h2 className="text-[#1D1D1F] text-3xl md:text-5xl font-semibold tracking-tighter mb-4 leading-tight">
-            압도적인 차이를<br />
-            직접 경험해 보세요.
+          <h2 className="text-[#1D1D1F] text-3xl md:text-5xl font-semibold tracking-tighter mb-4 leading-tight break-keep">
+            <RhythmicText text="압도적인 차이를|직접 경험해 보세요." />
           </h2>
-          <p className="text-[#86868B] text-base md:text-lg font-medium leading-relaxed mb-10 max-w-lg mx-auto">
-            원하는 방법으로 방문 예약을 남겨주시면, 친절하게 센터 안내 및 무료 체험을 도와드립니다.
-          </p>
+          <div className="text-[#86868B] text-base md:text-lg font-medium leading-relaxed mb-10 max-w-lg mx-auto break-keep">
+            <RhythmicText text="원하는 방법으로 방문 예약을 남겨주시면,|친절하게 센터 안내 및|무료 체험을 도와드립니다." />
+          </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             {/* Action 1: Naver Map Reservation */}

@@ -4,22 +4,23 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Check, ArrowRight } from 'lucide-react'
 import BlurFade from '@/components/ui/blur-fade'
+import { RhythmicText } from '@/components/ui/rhythmic-text'
 
 const commitments = [
   {
     id: 1,
-    question: '한계를 넘어서는 고통을\n견딜 준비가 되었는가?',
-    desc: 'SSC 스파르타의 관리는 엄격합니다.\n단순한 편리함이 아닌, 치열한 인고의 시간을\n합격으로 바꾸는 과정입니다.'
+    question: '한계를 넘어서는 고통을|견딜 준비가 되었는가?',
+    desc: 'SSC 스파르타의 관리는 엄격합니다.|단순한 편리함이 아닌, 치열한 인고의 시간을|합격으로 바꾸는 과정입니다.'
   },
   {
     id: 2,
-    question: '합격이라는 결과 외에\n모든 유혹을 끊을 수 있는가?',
-    desc: '스마트폰 수거부터 철저한 인터넷 통제까지.\n공부 외의 모든 것에서 완전히 격리될\n각오와 용기가 필요합니다.'
+    question: '합격이라는 결과 외에|모든 유혹을 끊을 수 있는가?',
+    desc: '스마트폰 수거부터 철저한 인터넷 통제까지.|공부 외의 모든 것에서 완전히 격리될|각오와 용기가 필요합니다.'
   },
   {
     id: 3,
-    question: '시스템의 완벽한 통제에\n순응할 각오가 되었는가?',
-    desc: '자기합리화를 버리고 전문가가 설계한\n교시제 시스템에 100% 몸을 맡길\n준비가 되어야 합니다.'
+    question: '시스템의 완벽한 통제에|순응할 각오가 되었는가?',
+    desc: '자기합리화를 버리고 전문가가 설계한|교시제 시스템에 100% 몸을 맡길|준비가 되어야 합니다.'
   }
 ]
 
@@ -44,13 +45,11 @@ export default function CommitmentSection() {
           <BlurFade delay={0.1}>
             <p className="text-[#86868B] text-xs font-bold tracking-[0.3em] uppercase mb-4">Last Check-in</p>
             <h2 className="text-[#1D1D1F] text-3xl md:text-5xl font-semibold tracking-tighter mb-6 leading-tight">
-              입학하기 전,<br /> 
-              스스로에게 물으십시오.
+              <RhythmicText text="입학하기 전,|스스로에게 물으십시오." />
             </h2>
-            <p className="text-[#86868B] text-base md:text-lg font-medium max-w-xl mx-auto break-keep">
-              SSC 스파르타는 모두를 위한 공간이 아닙니다. <br className="hidden md:block" />
-              오직 <span className="text-[#1D1D1F] font-bold">합격</span>만이 유일한 목표인 수험생을 위해 존재합니다.
-            </p>
+            <div className="text-[#86868B] text-base md:text-lg font-medium max-w-xl mx-auto break-keep">
+              <RhythmicText text="SSC 스파르타는 모두를 위한 공간이 아닙니다.|오직 합격만이 유일한 목표인 수험생을 위해 존재합니다." />
+            </div>
           </BlurFade>
         </div>
 
@@ -72,16 +71,16 @@ export default function CommitmentSection() {
                     <Check size={20} strokeWidth={3} />
                   </div>
                   <div>
-                    <h3 className={`text-xl font-bold tracking-tight mb-2 transition-colors duration-500 whitespace-pre-line ${
+                    <h3 className={`text-xl font-bold tracking-tight mb-2 transition-colors duration-500 ${
                       checked.includes(c.id) ? 'text-[#1D1D1F]' : 'text-[#86868B]'
                     }`}>
-                      {c.question}
+                      <RhythmicText text={c.question} />
                     </h3>
-                    <p className={`text-[15px] font-medium leading-relaxed transition-opacity duration-500 break-keep whitespace-pre-line ${
+                    <div className={`text-[15px] font-medium leading-relaxed transition-opacity duration-500 break-keep max-w-[40rem] ${
                       checked.includes(c.id) ? 'text-[#434345] opacity-100' : 'text-[#86868B] opacity-60'
                     }`}>
-                      {c.desc}
-                    </p>
+                      <RhythmicText text={c.desc} />
+                    </div>
                   </div>
                 </div>
               </div>
