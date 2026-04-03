@@ -64,9 +64,9 @@ export default function StreamPage({
     } catch (e) {}
   }
 
-  // Priority order: check interior first, then facility
-  processDir(interiorDir, `/images/interior/${campus}`)
+  // Priority order: check facility first, then interior (so facility images take precedence)
   processDir(facilityDir, `/images/facility/${campus}`)
+  processDir(interiorDir, `/images/interior/${campus}`)
 
   const facilitiesWithImages = defaultFacilities.map((f) => ({
     ...f,
