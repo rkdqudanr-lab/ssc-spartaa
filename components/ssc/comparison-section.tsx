@@ -3,7 +3,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { CheckCircle2, XCircle } from 'lucide-react'
+import { CheckCircle2, XCircle, BarChart3, PenTool, Timer, Award } from 'lucide-react'
 import BlurFade from '@/components/ui/blur-fade'
 import TiltCard from '@/components/ui/tilt-card'
 
@@ -123,21 +123,23 @@ export default function ComparisonSection() {
               <BlurFade delay={0.6}>
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    { src: '/images/commerter-assets/analysis.png', label: '정밀 분석' },
-                    { src: '/images/commerter-assets/pen.png', label: '밀착 코칭' },
-                    { src: '/images/commerter-assets/timer.png', label: '몰입 관리' },
-                    { src: '/images/commerter-assets/badge.png', label: '전문 지도' },
+                    { icon: BarChart3, label: '정밀 분석', color: 'from-blue-500/20 to-indigo-500/10', iconColor: 'text-blue-400' },
+                    { icon: PenTool, label: '밀착 코칭', color: 'from-indigo-500/20 to-purple-500/10', iconColor: 'text-indigo-400' },
+                    { icon: Timer, label: '몰입 관리', color: 'from-purple-500/20 to-pink-500/10', iconColor: 'text-purple-400' },
+                    { icon: Award, label: '전문 지도', color: 'from-pink-500/20 to-rose-500/10', iconColor: 'text-pink-400' },
                   ].map((asset, i) => (
-                    <div key={i} className="aspect-square rounded-[24px] bg-white/[0.03] border border-white/[0.08] relative overflow-hidden group hover:bg-white/[0.08] transition-all">
-                       <Image 
-                         src={asset.src} 
-                         alt={asset.label}
-                         fill
-                         className="object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
-                       />
-                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-4">
-                          <span className="text-[10px] font-bold text-white tracking-widest uppercase">{asset.label}</span>
+                    <div key={i} className="aspect-square rounded-[24px] bg-white/[0.03] border border-white/[0.08] relative overflow-hidden group hover:bg-white/[0.07] transition-all duration-500">
+                       <div className={`absolute inset-0 bg-gradient-to-br ${asset.color} opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
+                       <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
+                          <div className={`mb-3 p-3 rounded-2xl bg-white/[0.03] border border-white/[0.05] shadow-inner group-hover:scale-110 group-hover:rotate-3 transition-all duration-700 ${asset.iconColor}`}>
+                             <asset.icon size={32} strokeWidth={1.5} />
+                          </div>
+                          <span className="text-[11px] font-bold text-white/40 tracking-widest uppercase group-hover:text-white transition-colors">
+                             {asset.label}
+                          </span>
                        </div>
+                       {/* Subtle internal glow */}
+                       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/2 h-1/2 bg-indigo-500/10 blur-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
                     </div>
                   ))}
                 </div>
