@@ -29,10 +29,10 @@ const locations = [
     id: 'wonju',
     name: '원주',
     href: '/wonju',
-    tagline: '원주 유일 공단기/커넥츠프랩 파트너',
+    tagline: '원주 유일\n공단기/커넥츠프랩 파트너',
     highlights: [
-      '데이터 기반 1:1 학습 전략 & 성적 관리',
-      '단기합격을 위한 스파르타식 타임테이블',
+      '데이터 기반 1:1 학습 전략 &\n정밀한 성적 관리 시스템',
+      '단기합격을 위한\n스파르타식 타임테이블',
     ],
     address: '원주시 치악로 1793 농협건물 4층',
     color: '#F5F5F7',
@@ -41,10 +41,10 @@ const locations = [
     id: 'chuncheon',
     name: '춘천',
     href: '/chuncheon',
-    tagline: '임용고시 최상위 합격의 산실',
+    tagline: '임용고시\n최상위 합격의 산실',
     highlights: [
-      '순공 10시간을 맹세하는 교시제 시스템',
-      '합격생들이 증명하는 압도적 면학 분위기',
+      '순공 10시간을 맹세하는\n철저한 교시제 시스템',
+      '합격생들이 증명하는\n압도적인 면학 분위기',
     ],
     address: '춘천시 퇴계로 249 5층',
     color: '#F5F5F7',
@@ -53,10 +53,10 @@ const locations = [
     id: 'chungju',
     name: '충주',
     href: '/chungju',
-    tagline: '노량진 시스템 충주 직영',
+    tagline: '노량진 시스템\n충주 직영 학습센터',
     highlights: [
-      '대치동 현강 자료·모의고사 완벽 도입',
-      '풀타임 상주 코치의 철저한 수면·출결 통제',
+      '대치동 현강 자료와\n프리미엄 모의고사 완벽 도입',
+      '풀타임 상주 코치의\n철저한 수면 및 출결 통제',
     ],
     address: '충주시 계명대로 283',
     color: '#F5F5F7',
@@ -166,7 +166,7 @@ export default function SelectLocation() {
                                 {loc.id} CAMPUS
                               </p>
                               <h2 className="text-[#1D1D1F] text-2xl sm:text-3xl font-semibold tracking-tighter mb-1">{loc.name}</h2>
-                              <p className="font-medium text-xs sm:text-sm text-[#434345] tracking-tight">{loc.tagline}</p>
+                              <p className="font-medium text-xs sm:text-sm text-[#434345] tracking-tight whitespace-pre-line">{loc.tagline}</p>
                             </div>
                             <div className="w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center flex-shrink-0 bg-[#F5F5F7] text-[#1D1D1F] group-hover:bg-black group-hover:text-white transition-all duration-300 ease-out shadow-sm group-hover:shadow-md">
                               <ChevronRight size={18} />
@@ -177,7 +177,7 @@ export default function SelectLocation() {
                             {loc.highlights.map((h, i) => (
                               <li key={i} className="flex items-start gap-2">
                                 <span className="text-[#86868B] mt-[2px] text-[10px]">✦</span>
-                                <span className="text-[#434345] text-xs sm:text-sm font-medium tracking-tight leading-snug">{h}</span>
+                                <span className="text-[#434345] text-xs sm:text-sm font-medium tracking-tight leading-snug whitespace-pre-line">{h}</span>
                               </li>
                             ))}
                           </ul>

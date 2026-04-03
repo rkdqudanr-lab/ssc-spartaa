@@ -6,18 +6,18 @@ import { Shield, BarChart3, Users } from 'lucide-react'
 const features = [
   {
     icon: Shield,
-    title: '원주 유일 커넥츠프랩(공단기) 파트너',
-    description: '노량진 커리큘럼 그대로, 강원도 밀착 관리로 완성',
+    title: '원주 유일\n공단기·커넥츠프랩 파트너',
+    description: '노량진 프리미엄 커리큘럼 그대로,\n강원도 밀착 관리로 완성합니다.',
   },
   {
     icon: BarChart3,
-    title: '전국모의고사 + 취약점 분석 프로그램 연계',
-    description: '실시간 데이터로 약점을 정확히 잡고 학습 전략을 수립',
+    title: '전국 모의고사 &\n취약점 분석 프로그램',
+    description: '실시간 데이터로 약점을 정확히 파악하고\n최적의 학습 전략을 수립합니다.',
   },
   {
     icon: Users,
-    title: '코멘터 담임제 — 학습·생활·멘탈 전과정 관리',
-    description: '매일 플래너 점검, 의지가 흐트러지는 순간마다 옆에서 잡아줍니다',
+    title: '코멘터 담임제 —\n전과정 밀착 케어',
+    description: '매일 플래너 점검부터 멘탈 관리까지,\n의지가 흔들리는 순간마다 곁을 지킵니다.',
   },
 ]
 
@@ -56,10 +56,10 @@ export function Differentiation() {
               </div>
 
               <div className="md:text-center">
-                <h3 className="text-[17px] font-semibold text-[#1D1D1F] tracking-tight mb-2">
+                <h3 className="text-[17px] font-semibold text-[#1D1D1F] tracking-tight mb-2 whitespace-pre-line">
                   {f.title}
                 </h3>
-                <p className="text-sm text-text-secondary leading-relaxed">
+                <p className="text-sm text-text-secondary leading-relaxed whitespace-pre-line break-keep">
                   {f.description}
                 </p>
               </div>

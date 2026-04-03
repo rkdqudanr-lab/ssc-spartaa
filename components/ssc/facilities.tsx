@@ -68,13 +68,13 @@ export function Facilities({ facilities }: { facilities?: FacilityItem[] } = {})
         {/* Heading */}
         <div className="mb-16 text-center fade-in-up">
           <p className="text-[#0071E3] text-xs font-bold tracking-[0.3em] uppercase mb-4">World-Class Environment</p>
-          <h2 className="text-[#1D1D1F] text-3xl md:text-5xl font-semibold tracking-tighter mb-6">
-            공부가 유지될 수밖에 없는<br />
-            압도적 몰입의 공간
+          <h2 className="text-[#1D1D1F] text-3xl md:text-5xl font-semibold tracking-tighter mb-8 whitespace-pre-line break-keep leading-tight">
+            공부가 유지될 수밖에 없는{'\n'}압도적 몰입의 공간
           </h2>
-          <p className="text-[#86868B] text-lg font-medium leading-relaxed max-w-2xl mx-auto break-keep">
-            의지에만 맡기지 않습니다. 완벽하게 설계된 환경이{'\n'}
-            당신을 합격으로 이끄는 가장 강력한 엔진이 됩니다.
+          <p className="text-[#86868B] text-base md:text-xl font-medium max-w-2xl mx-auto leading-relaxed whitespace-pre-line break-keep">
+            의지에만 맡기지 않습니다.{'\n'}
+            완벽하게 설계된 환경이 당신을 합격으로{'\n'}
+            이끄는 가장 강력한 엔진이 됩니다.
           </p>
         </div>
 

@@ -8,18 +8,18 @@ import BlurFade from '@/components/ui/blur-fade'
 const commitments = [
   {
     id: 1,
-    question: '본인의 한계를 넘어서는 고통을 견딜 준비가 되었는가?',
-    desc: 'SSC 스파르타의 관리는 엄격합니다. 단순한 편리함이 아닌, 치열한 인고의 시간을 합격으로 바꾸는 과정입니다.'
+    question: '한계를 넘어서는 고통을\n견딜 준비가 되었는가?',
+    desc: 'SSC 스파르타의 관리는 엄격합니다.\n단순한 편리함이 아닌, 치열한 인고의 시간을\n합격으로 바꾸는 과정입니다.'
   },
   {
     id: 2,
-    question: '합격이라는 결과 외에 모든 유혹을 끊을 수 있는가?',
-    desc: '스마트폰 수거부터 철저한 정숙까지. 공부 외의 모든 것에서 완전히 격리될 용기가 필요합니다.'
+    question: '합격이라는 결과 외에\n모든 유혹을 끊을 수 있는가?',
+    desc: '스마트폰 수거부터 철저한 인터넷 통제까지.\n공부 외의 모든 것에서 완전히 격리될\n각오와 용기가 필요합니다.'
   },
   {
     id: 3,
-    question: '시스템의 완벽한 통제에 순응할 각오가 되었는가?',
-    desc: '자기합리화를 버리고 전문가가 설계한 교시제 시스템에 100% 몸을 맡길 준비가 되어야 합니다.'
+    question: '시스템의 완벽한 통제에\n순응할 각오가 되었는가?',
+    desc: '자기합리화를 버리고 전문가가 설계한\n교시제 시스템에 100% 몸을 맡길\n준비가 되어야 합니다.'
   }
 ]
 
@@ -72,12 +72,12 @@ export default function CommitmentSection() {
                     <Check size={20} strokeWidth={3} />
                   </div>
                   <div>
-                    <h3 className={`text-xl font-bold tracking-tight mb-2 transition-colors duration-500 ${
+                    <h3 className={`text-xl font-bold tracking-tight mb-2 transition-colors duration-500 whitespace-pre-line ${
                       checked.includes(c.id) ? 'text-[#1D1D1F]' : 'text-[#86868B]'
                     }`}>
                       {c.question}
                     </h3>
-                    <p className={`text-[15px] font-medium leading-relaxed transition-opacity duration-500 break-keep ${
+                    <p className={`text-[15px] font-medium leading-relaxed transition-opacity duration-500 break-keep whitespace-pre-line ${
                       checked.includes(c.id) ? 'text-[#434345] opacity-100' : 'text-[#86868B] opacity-60'
                     }`}>
                       {c.desc}
