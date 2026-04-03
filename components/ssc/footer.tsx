@@ -1,150 +1,126 @@
 'use client'
 
-import { useState } from 'react'
-import { Instagram, ExternalLink, ChevronDown } from 'lucide-react'
+import React, { useState } from 'react'
+import { Instagram, ExternalLink, ChevronDown, Facebook } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import { CAMPUS_CONFIG } from '@/lib/campus-config'
 
-const quickLinks = [
-  { label: '홈', href: '#hero' },
-  { label: '프로그램', href: '#programs' },
-  { label: '합격후기', href: '#testimonials' },
-  { label: '캠퍼스', href: '#campus' },
-  { label: '상담신청', href: '#cta' },
+const footerLinks = [
+  { label: '회사소개', href: '/about' },
+  { label: '이용약관', href: '/terms' },
+  { label: '개인정보처리방침', href: '/privacy', bold: true },
+  { label: '강사모집', href: '/recruit' },
 ]
 
-const campusAddresses = Object.values(CAMPUS_CONFIG).map((c) => ({
-  name: c.name,
-  addr: c.addrShort,
-  phone: c.phone,
-}))
+const familySites = [
+  { label: '공단기 (원주 파트너)', href: 'https://gong.conects.com/' },
+  { label: '경단기', href: 'https://gyung.conects.com/' },
+  { label: '소단기', href: 'https://so.conects.com/' },
+  { label: '숨마투스', href: 'https://summa.conects.com/' },
+]
 
 export function Footer() {
-  const [campusOpen, setCampusOpen] = useState(false)
+  const [familyOpen, setFamilyOpen] = useState(false)
   const pathname = usePathname()
   const isGongmuwonPage = pathname.includes('gongmuwon')
 
-  const scrollTo = (href: string) => {
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
-  }
-
   return (
-    <footer className="bg-background-subtle border-t border-border-color">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
-          {/* Brand col */}
-          <div>
-            <div className="font-bold text-xl text-navy dark:text-accent-blue mb-2">
-              {isGongmuwonPage ? (
-                <div className="flex items-center gap-1.5 flex-wrap">
-                  <span>SSC<span className="text-accent-blue dark:text-accent-amber font-medium">스파르타</span></span>
-                  <span className="text-text-secondary font-light text-sm">X</span>
-                  <span className="text-[#0071E3] font-bold">커넥츠프랩</span>
-                </div>
-              ) : (
-                <>SSC<span className="text-accent-blue dark:text-accent-amber">스파르타</span></>
-              )}
-            </div>
-            <p className="text-sm text-text-secondary leading-relaxed">
-              당신의 합격 파트너
-            </p>
-            <p className="text-xs text-text-secondary mt-4 leading-relaxed">
-              대표전화{' '}
-              <a href={`tel:${CAMPUS_CONFIG.wonju.phone}`} className="hover:text-accent-blue transition-colors">
-                {CAMPUS_CONFIG.wonju.phone}(원주)
-              </a>
-            </p>
-          </div>
+    <footer className="bg-white border-t border-black/5 py-14">
+      <div className="max-w-[72rem] mx-auto px-4 sm:px-6">
+        
+        {/* Top Navigation & Family Site */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10 pb-8 border-b border-black/[0.03]">
+          <nav className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            {footerLinks.map((link, i) => (
+              <React.Fragment key={link.label}>
+                <a 
+                  href={link.href} 
+                  className={`text-[13px] ${link.bold ? 'font-bold text-[#1D1D1F]' : 'text-[#86868B]'} hover:text-[#0071E3] transition-colors`}
+                >
+                  {link.label}
+                </a>
+                {i < footerLinks.length - 1 && (
+                  <span className="w-[1px] h-3 bg-black/10 hidden sm:block" />
+                )}
+              </React.Fragment>
+            ))}
+          </nav>
 
-          {/* Campus addresses — accordion on mobile */}
-          <div>
+          <div className="relative w-full md:w-56">
             <button
-              className="w-full flex items-center justify-between md:cursor-default"
-              onClick={() => setCampusOpen((v) => !v)}
+              onClick={() => setFamilyOpen(!familyOpen)}
+              className="w-full flex items-center justify-between px-4 py-2.5 bg-[#F5F5F7] border border-black/[0.05] rounded-xl text-[13px] font-medium text-[#1D1D1F] hover:bg-black/[0.03] transition-all"
             >
-              <p className="text-xs font-semibold text-text-secondary uppercase tracking-widest mb-0 md:mb-4">
-                캠퍼스
-              </p>
-              <ChevronDown
-                size={16}
-                className={`text-text-secondary md:hidden transition-transform ${campusOpen ? 'rotate-180' : ''}`}
-              />
+              <span>패밀리 사이트</span>
+              <ChevronDown size={14} className={`transition-transform duration-300 ${familyOpen ? 'rotate-180' : ''}`} />
             </button>
-            <div className={`overflow-hidden transition-all duration-300 md:max-h-none ${campusOpen ? 'max-h-64 mt-3' : 'max-h-0 md:max-h-none'}`}>
-              <ul className="flex flex-col gap-3 md:mt-0">
-                {campusAddresses.map((c) => (
-                  <li key={c.name}>
-                    <p className="text-sm font-semibold text-text-primary">{c.name}</p>
-                    <p className="text-xs text-text-secondary">{c.addr}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Quick links + SNS */}
-          <div>
-            <p className="text-xs font-semibold text-text-secondary uppercase tracking-widest mb-4">
-              빠른 링크
-            </p>
-            <ul className="flex flex-col gap-2 mb-6">
-              {quickLinks.map((l) => (
-                <li key={l.href}>
-                  <button
-                    onClick={() => scrollTo(l.href)}
-                    className="text-sm text-text-secondary hover:text-navy dark:hover:text-accent-blue transition-colors"
+            {familyOpen && (
+              <div className="absolute bottom-full left-0 w-full mb-2 bg-white border border-black/[0.08] shadow-2xl rounded-2xl overflow-hidden z-50 animate-in fade-in slide-in-from-bottom-2">
+                {familySites.map((site) => (
+                  <a
+                    key={site.label}
+                    href={site.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-4 py-3 text-[12px] text-[#1D1D1F] hover:bg-[#F5F5F7] transition-colors"
                   >
-                    {l.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
+                    {site.label}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
 
-            {/* SNS */}
-            <p className="text-xs font-semibold text-text-secondary uppercase tracking-widest mb-3">
-              SNS
+        {/* Company Info Block */}
+        <div className="text-[12px] leading-[1.8] text-[#86868B]">
+          <p className="font-bold text-[#434345] mb-2 text-[13px]">(주)에스에스씨 스파르타</p>
+          
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-4">
+            <div className="flex items-center gap-2">
+              <span className="font-semibold text-black/60">전화번호 :</span>
+              <a href={`tel:${CAMPUS_CONFIG.wonju.phone}`} className="hover:text-[#0071E3]">{CAMPUS_CONFIG.wonju.phone}</a>
+            </div>
+            <span className="w-[1px] h-2 bg-black/10 hidden sm:block" />
+            <div className="flex items-center gap-2">
+              <span className="font-semibold text-black/60">이메일주소 :</span>
+              <a href="mailto:cs@sscsparta.com" className="hover:text-[#0071E3]">cs@sscsparta.com</a>
+            </div>
+            <span className="w-[1px] h-2 bg-black/10 hidden sm:block" />
+            <div className="flex items-center gap-2">
+              <span className="font-semibold text-black/60">주소 :</span>
+              <span>{CAMPUS_CONFIG.wonju.address}</span>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[#86868B]/80">
+            <p><span className="font-medium">대표이사 :</span> [대표자 성함]</p>
+            <span className="w-[1px] h-2 bg-black/10 hidden sm:block" />
+            <p><span className="font-medium">원주 아카데미 평생교육원(제1021호)</span></p>
+            <span className="w-[1px] h-2 bg-black/10 hidden sm:block" />
+            <p><span className="font-medium">사업자 등록번호 :</span> [사업자 번호]</p>
+            <span className="w-[1px] h-2 bg-black/10 hidden sm:block" />
+            <p><span className="font-medium">통신판매업신고 :</span> [신고 번호]</p>
+            <span className="w-[1px] h-2 bg-black/10 hidden sm:block" />
+            <p><span className="font-medium text-[#0071E3]/70 underline cursor-pointer">사업자 정보확인</span></p>
+            <span className="w-[1px] h-2 bg-black/10 hidden sm:block" />
+            <p><span className="font-medium">호스팅제공자 :</span> Vercel Inc.</p>
+          </div>
+
+          <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 opacity-60">
+            <p className="text-[11px] tracking-tight">
+              Copyright © 2025 (주)에스에스씨 스파르타 All rights reserved. 
+              단기 합격의 꿈, SSC 스파르타가 함께합니다.
             </p>
-            <div className="flex items-center gap-3">
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="w-8 h-8 rounded-lg border border-border-color flex items-center justify-center text-text-secondary hover:text-accent-blue hover:border-accent-blue/40 transition-colors"
-              >
-                <Instagram size={15} strokeWidth={1.5} />
-              </a>
-              <a
-                href="https://blog.naver.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Naver Blog"
-                className="w-8 h-8 rounded-lg border border-border-color flex items-center justify-center text-text-secondary hover:text-accent-blue hover:border-accent-blue/40 transition-colors text-xs font-bold"
-              >
-                N
-              </a>
-              <a
-                href="https://pf.kakao.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="KakaoTalk Channel"
-                className="w-8 h-8 rounded-lg border border-border-color flex items-center justify-center text-text-secondary hover:text-accent-amber hover:border-accent-amber/40 transition-colors"
-              >
-                <ExternalLink size={13} strokeWidth={1.5} />
-              </a>
+            
+            <div className="flex items-center gap-4">
+              <a href="https://blog.naver.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#0071E3] transition-colors font-bold text-[13px]">N</a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#0071E3] transition-colors"><Instagram size={15} strokeWidth={1.5} /></a>
+              <a href="https://pf.kakao.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#0071E3] transition-colors"><ExternalLink size={13} strokeWidth={1.5} /></a>
             </div>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-border-color pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <p className="text-xs text-text-secondary">
-            © 2025 SSC스파르타 All rights reserved.
-          </p>
-          <p className="text-xs text-text-secondary">
-            사업자등록번호 등 정보는 상담 시 안내드립니다.
-          </p>
-        </div>
       </div>
     </footer>
   )
