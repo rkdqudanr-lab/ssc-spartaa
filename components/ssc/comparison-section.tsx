@@ -100,10 +100,10 @@ export default function ComparisonSection() {
                 <div className="inline-flex px-4 py-1.5 bg-indigo-500/15 border border-indigo-500/25 rounded-full text-indigo-400 text-[10px] font-extrabold tracking-[0.25em] uppercase mb-8 shadow-[0_0_20px_rgba(99,102,241,0.2)]">
                   Expert Group
                 </div>
-                <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-[1.1] tracking-tighter text-balance break-keep">
-                  전문 지식을 갖춘<br />
-                  <span className="text-indigo-400 drop-shadow-[0_0_25px_rgba(129,140,248,0.4)]">자기주도학습지도사들이</span><br />
-                  당신의 곁을 끝까지 지킵니다.
+                <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-[1.1] tracking-tighter break-keep">
+                  <span className="inline-block">전문 지식을 갖춘</span><br />
+                  <span className="text-indigo-400 drop-shadow-[0_0_25px_rgba(129,140,248,0.4)] inline-block">자기주도학습지도사들이</span><br />
+                  <span className="inline-block">당신의 곁을 끝까지 지킵니다.</span>
                 </h3>
                 <p className="text-[#86868B] text-lg md:text-xl font-semibold max-w-2xl leading-relaxed break-keep mb-12 text-balance">
                   SSC 스파르타의 코멘터는 단순한 감시자가 아닙니다. <br className="hidden md:block" />
