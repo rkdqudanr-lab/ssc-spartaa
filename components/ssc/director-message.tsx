@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Quote } from 'lucide-react'
 
@@ -18,12 +19,14 @@ export function DirectorMessage() {
           className="w-full md:w-1/3 aspect-[3/4] relative group"
         >
           <div className="absolute inset-0 rounded-[40px] border border-white/10 group-hover:border-white/20 transition-colors" />
-          <div className="absolute inset-4 rounded-[32px] bg-gradient-to-b from-white/10 to-transparent flex items-center justify-center overflow-hidden">
-             {/* Use a placeholder image or a generated image asset later if needed */}
-             <div className="flex flex-col items-center gap-3 opacity-30 group-hover:opacity-50 transition-opacity">
-                <p className="text-[12px] font-bold tracking-[0.2em] uppercase">Director</p>
-                <div className="w-12 h-1 invisible" />
-             </div>
+          <div className="absolute inset-2 rounded-[32px] overflow-hidden group-hover:inset-0 transition-all duration-700">
+             <Image 
+               src="/images/director-commerters.png" 
+               alt="SSC Sparta Director & Team"
+               fill
+               className="object-cover group-hover:scale-105 transition-all duration-1000"
+             />
+             <div className="absolute inset-0 bg-gradient-to-t from-[#1D1D1F] via-transparent to-transparent opacity-60" />
           </div>
           {/* Caption */}
           <div className="absolute -bottom-6 -right-6 md:-right-12 bg-white/10 backdrop-blur-xl border border-white/10 p-6 rounded-2xl shadow-2xl">

@@ -122,10 +122,21 @@ export default function ComparisonSection() {
             <div className="md:col-span-2">
               <BlurFade delay={0.6}>
                 <div className="grid grid-cols-2 gap-4">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="aspect-square rounded-[24px] bg-white/[0.03] border border-white/[0.08] flex items-center justify-center group hover:bg-white/[0.08] transition-all">
-                       <div className="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border border-white/10 flex items-center justify-center">
-                          <CheckCircle2 size={24} className="text-indigo-400 opacity-40 group-hover:opacity-100 transition-all" />
+                  {[
+                    { src: '/images/commerter-assets/analysis.png', label: '정밀 분석' },
+                    { src: '/images/commerter-assets/pen.png', label: '밀착 코칭' },
+                    { src: '/images/commerter-assets/timer.png', label: '몰입 관리' },
+                    { src: '/images/commerter-assets/badge.png', label: '전문 지도' },
+                  ].map((asset, i) => (
+                    <div key={i} className="aspect-square rounded-[24px] bg-white/[0.03] border border-white/[0.08] relative overflow-hidden group hover:bg-white/[0.08] transition-all">
+                       <Image 
+                         src={asset.src} 
+                         alt={asset.label}
+                         fill
+                         className="object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
+                       />
+                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-4">
+                          <span className="text-[10px] font-bold text-white tracking-widest uppercase">{asset.label}</span>
                        </div>
                     </div>
                   ))}
