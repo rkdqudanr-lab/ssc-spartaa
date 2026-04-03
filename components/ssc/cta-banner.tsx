@@ -26,13 +26,12 @@ export function CtaBanner({
             1일 무료 체험 예약
           </span>
           <h2 
-            className="text-[#1D1D1F] font-semibold tracking-tighter mb-6 leading-tight break-keep text-balance"
-            style={{ fontSize: 'var(--font-size-section-title)' }}
+            className="section-title mb-6 leading-tight text-balance"
           >
-            <RhythmicText text="압도적인 차이를|직접 경험해 보세요." />
+            <RhythmicText text={"압도적인 차이를\n직접 경험해 보세요."} />
           </h2>
-          <div className="text-[#86868B] text-base md:text-lg font-medium leading-relaxed mb-10 max-w-lg mx-auto break-keep">
-            <RhythmicText text="원하는 방법으로 방문 예약을 남겨주시면,|친절하게 센터 안내 및|무료 체험을 도와드립니다." />
+          <div className="text-[#86868B] font-medium leading-relaxed mb-10 max-w-lg mx-auto break-keep" style={{ fontSize: 'var(--font-size-body-lg)' }}>
+            <RhythmicText text={"원하는 방법으로 방문 예약을 남겨주시면,\n친절하게 센터 안내 및\n무료 체험을 도와드립니다."} />
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

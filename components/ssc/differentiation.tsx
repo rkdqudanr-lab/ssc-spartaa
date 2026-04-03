@@ -34,11 +34,11 @@ export function Differentiation() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Heading */}
         <div className="mb-12 fade-in-up text-center">
-          <h2 className="text-3xl md:text-4xl font-semibold text-[#1D1D1F] tracking-tighter mb-4 leading-tight">
+          <h2 className="section-title mb-4 leading-tight">
             서울까지 안 가도 됩니다
           </h2>
-          <div className="text-text-secondary leading-relaxed max-w-2xl mx-auto break-keep">
-            <RhythmicText text="노량진 커리큘럼 그대로, 강원도 밀착 관리로 완성하는|SSC 스파르타만의 압도적인 합격 관리 시스템" />
+          <div className="text-text-secondary leading-relaxed max-w-2xl mx-auto break-keep" style={{ fontSize: 'var(--font-size-body-lg)' }}>
+            <RhythmicText text={"노량진 커리큘럼 그대로, 강원도 밀착 관리로 완성하는\nSSC 스파르타만의 압도적인 합격 관리 시스템"} />
           </div>
         </div>
 

@@ -22,7 +22,7 @@ export function AvailabilityBadge({ campusName }: AvailabilityBadgeProps) {
         <span className="absolute inset-0 rounded-full bg-[#FF3B30]" />
       </div>
       <span className="text-[11px] sm:text-xs font-bold text-[#FF3B30] tracking-tight text-center">
-        {campusName} 캠퍼스 <span className="opacity-60 font-medium">|</span> 현재 잔여석이 얼마 남지 않았습니다 <span className="underline decoration-[#FF3B30]/30 underline-offset-2">(선착순 마감)</span>
+        {campusName} 캠퍼스 <span className="opacity-60 font-medium">·</span> 현재 잔여석이 얼마 남지 않았습니다 <span className="underline decoration-[#FF3B30]/30 underline-offset-2">(선착순 마감)</span>
       </span>
     </motion.div>
   )

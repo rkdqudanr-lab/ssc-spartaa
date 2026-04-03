@@ -4,26 +4,26 @@ import { motion } from 'framer-motion'
 import { Sun, Coffee, Moon, BookOpen } from 'lucide-react'
 
 const SCHEDULE = [
-  { time: '08:00', label: '등원 및 스마트폰 반납', desc: '모든 전송기기 수거 및 즉시 몰입 준비', icon: Sun },
-  { time: '09:00', label: '오전 집중 자습(1~3교시)', desc: '중간 이탈 금지, 압도적 고요함 속 몰입', icon: BookOpen },
-  { time: '12:00', label: '점심 식사 및 휴식', desc: '개별 자유 식사 및 인근 식당 이용 안내', icon: Coffee },
-  { time: '13:00', label: '오후 집중 자습(4~7교시)', desc: '졸음 관리 코멘터의 상시 순찰', icon: BookOpen },
-  { time: '18:00', label: '저녁 식사 및 멘탈 케어', desc: '잠시 휴식 후 저녁 자습 대비 멘탈 정돈', icon: Sun },
-  { time: '19:00', label: '저녁 심화 자습', desc: '오늘 배운 내용 완벽 복습 및 마무리', icon: BookOpen },
-  { time: '22:00', label: '최종 하원', desc: '순공 12시간의 성취감과 함께 귀가', icon: Moon },
+  { time: '08:20', label: '오전 집중 학습 시작', desc: '0교시 단어 테스트 및 가장 상쾌한 오전의 몰입', icon: Sun },
+  { time: '12:30', label: '점심 식사 및 휴식', desc: '오후의 압도적 몰입을 위한 에너지 재충전', icon: Coffee },
+  { time: '13:50', label: '오후 집중 밀착 관리', desc: '나태함이 파고들 틈 없는 철저한 생활 통제 시스템', icon: BookOpen },
+  { time: '17:40', label: '저녁 식사 및 정비', desc: '마지막 스퍼트를 위해 몸과 마음을 정돈하는 시간', icon: Coffee },
+  { time: '18:50', label: '야간 심화 몰입 학습', desc: '오늘 배운 내용을 완벽하게 정리하는 밤의 몰입', icon: BookOpen },
+  { time: '22:10', label: '최종 하원 및 심야 자율 학습', desc: '순공 12시간의 성취감과 함께하는 하루의 마무리', icon: Moon },
 ]
 
 export function TimelineView() {
   return (
-    <section id="timeline" className="py-24 bg-[#F5F5F7]">
-      <div className="max-w-[64rem] mx-auto px-4 sm:px-6">
-        <div className="mb-16 text-center">
-            <h2 className="text-3xl md:text-5xl font-semibold text-[#1D1D1F] tracking-tighter mb-4 whitespace-pre-line break-keep">
-              가장 치열한 몰입,{'\n'}
+    <section id="timeline" className="pb-32 md:pb-48 pt-10 md:pt-16 bg-[#F5F5F7] overflow-hidden">
+      <div className="max-w-[72rem] mx-auto px-6 sm:px-8">
+        <div className="mb-20 md:mb-28 text-center fade-in-up">
+            <p className="text-[#0071E3] text-[11px] sm:text-xs font-extrabold tracking-[0.3em] uppercase mb-6 opacity-80">Daily Workflow</p>
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-[#1D1D1F] tracking-tighter mb-8 leading-[1.05] text-balance">
+              가장 치열한 몰입,<br />
               스파르타의 하루
             </h2>
-            <p className="text-[#86868B] text-lg font-medium max-w-2xl mx-auto leading-relaxed whitespace-pre-line break-keep">
-              낭비되는 시간 없이 오직 본질에만 집중합니다.{'\n'}
+            <p className="text-[#434345] text-lg md:text-xl font-semibold max-w-2xl mx-auto leading-relaxed text-balance">
+              낭비되는 시간 없이 오직 본질에만 집중합니다. <br className="hidden md:block" />
               1분 1초를 아끼는 완벽한 일과표를 확인하세요.
             </p>
         </div>
@@ -45,16 +45,16 @@ export function TimelineView() {
                 }`}
               >
                 {/* Content Side */}
-                <div className={`flex-1 md:w-1/2 ${i % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12 md:text-left'} ml-12 md:ml-0`}>
-                  <p className="text-[#0071E3] text-sm font-bold tracking-widest mb-1">{item.time}</p>
-                  <h3 className="text-xl font-semibold text-[#1D1D1F] mb-1">{item.label}</h3>
-                  <p className="text-[#86868B] text-sm font-medium">{item.desc}</p>
+                <div className={`flex-1 md:w-1/2 ${i % 2 === 0 ? 'md:pr-16 md:text-right' : 'md:pl-16 md:text-left'} ml-12 md:ml-0`}>
+                  <p className="text-[#0071E3] text-[11px] md:text-xs font-extrabold tracking-[0.2em] uppercase mb-2 opacity-80">{item.time}</p>
+                  <h3 className="text-2xl md:text-3xl font-bold text-[#1D1D1F] tracking-tight mb-2">{item.label}</h3>
+                  <p className="text-[#86868B] text-base md:text-lg font-semibold leading-relaxed break-keep max-w-md inline-block">{item.desc}</p>
                 </div>
 
                 {/* Counterpart Side (Dot/Icon) */}
                 <div className="absolute left-4 md:left-1/2 -translate-x-1/2 z-10">
-                  <div className="w-8 h-8 rounded-full bg-white border-2 border-black/[0.05] flex items-center justify-center shadow-lg group overflow-hidden">
-                    <item.icon size={16} className="text-[#1D1D1F]" />
+                  <div className="w-12 h-12 rounded-full bg-white border-4 border-[#F5F5F7] flex items-center justify-center shadow-premium-hover transition-transform duration-500 hover:scale-110">
+                    <item.icon size={22} className="text-[#1D1D1F]" strokeWidth={2.5} />
                   </div>
                 </div>
 
@@ -63,6 +63,19 @@ export function TimelineView() {
               </motion.div>
             ))}
           </div>
+
+          {/* Flexible Schedule Note */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="mt-16 text-center"
+          >
+            <p className="text-[#86868B] text-sm font-semibold flex items-center justify-center gap-2">
+              <span className="w-1 h-1 rounded-full bg-[#0071E3]" />
+              등원 및 하원 시간은 수험생의 거주지에 따라 유동적으로 운영됩니다.
+            </p>
+          </motion.div>
         </div>
       </div>
     </section>

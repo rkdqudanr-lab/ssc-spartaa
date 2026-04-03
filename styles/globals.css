@@ -120,6 +120,64 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Typography Refinement */
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tighter;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    @apply leading-relaxed;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer utilities {
+  /* Premium Apple-style Shadows */
+  .shadow-premium {
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04), 
+                0 20px 40px -20px rgba(0, 0, 0, 0.03);
+  }
+  
+  .shadow-premium-hover {
+    box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.08), 
+                0 30px 60px -15px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Glassmorphism */
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/20;
+  }
+
+  .dark .glass {
+    @apply bg-black/50 backdrop-blur-md border-white/10;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/20 rounded-full hover:bg-muted-foreground/30 transition-colors;
+  }
+
+  /* Text Balance */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Main Title Style */
+  .main-title {
+    @apply text-4xl sm:text-6xl md:text-7xl font-bold tracking-tighter leading-[1.05];
+    text-wrap: balance;
   }
 }

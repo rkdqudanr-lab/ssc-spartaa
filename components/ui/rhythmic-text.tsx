@@ -7,42 +7,28 @@ interface RhythmicTextProps {
 }
 
 /**
- * 모바일/PC 맞춤형 '듀얼 리듬' 줄바꿈을 구현하는 컴포넌트입니다.
+ * 텍스트 내의 줄바꿈(\n)을 렌더링하고 단어 단위 줄바꿈을 지원하는 컴포넌트입니다.
  * 
- * 마커 규칙:
- * - '|' : 모바일에서만 줄바꿈 발생 (<br className="md:hidden" />)
- * - '\n': 공통(모바일/PC) 줄바꿈
- * 
- * @param text 렌더링할 텍스트 (마커 포함 가능)
+ * @param text 렌더링할 텍스트
  * @param className 추가 스타일
- * @param pcMaxWidth PC에서의 최대 가로 폭 (기본값 없음)
+ * @param pcMaxWidth PC에서 중앙 정렬을 위한 최대 가로 폭
  */
 export function RhythmicText({ text, className = '', pcMaxWidth }: RhythmicTextProps) {
   if (!text) return null
 
-  // 1단계: '\n'으로 문단 구분
-  const paragraphs = text.split('\n')
+  // \n 문자를 기준으로 문단/줄 구분
+  const lines = text.split('\n')
 
   return (
-    <div 
-      className={`whitespace-pre-line break-keep overflow-wrap-anywhere ${className}`}
-      style={pcMaxWidth ? { maxWidth: pcMaxWidth, marginLeft: 'auto', marginRight: 'auto' } : {}}
+    <span 
+      className={`inline-block whitespace-pre-line break-keep overflow-wrap-anywhere ${className}`}
+      style={pcMaxWidth ? { maxWidth: pcMaxWidth, marginLeft: 'auto', marginRight: 'auto', display: 'block' } : {}}
     >
-      {paragraphs.map((para, pIdx) => (
-        <span key={pIdx} className="block mb-2 last:mb-0">
-          {para.split(/(\|)/).map((part, i) => {
-            if (part === '|') {
-              return (
-                <React.Fragment key={i}>
-                  <br className="md:hidden" />
-                  <span className="hidden md:inline"> </span>
-                </React.Fragment>
-              )
-            }
-            return part
-          })}
+      {lines.map((line, idx) => (
+        <span key={idx} className="block mb-[0.2em] last:mb-0">
+          {line}
         </span>
       ))}
-    </div>
+    </span>
   )
 }

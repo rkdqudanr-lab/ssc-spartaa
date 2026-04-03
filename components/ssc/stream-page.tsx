@@ -38,21 +38,39 @@ export default function StreamPage({
 
   const campusName = campus === 'wonju' ? '원주' : campus === 'chuncheon' ? '춘천' : '충주'
 
-  // Dynamic image fetching for facilities
-  const dir = path.join(process.cwd(), 'public', 'images', 'facility', campus)
-  let facilityImages: string[] = []
-  try {
-    facilityImages = fs.readdirSync(dir)
-      .filter((f) => /\.(jpg|jpeg|png|webp|gif)$/i.test(f))
-      .sort()
-      .map((f) => `/images/facility/${campus}/${f}`)
-  } catch (error) {
-    console.warn(`No facility images found for ${campus}`)
+  // Dynamic image fetching for facilities (matching by numbered indices 01, 02...)
+  const facilityDir = path.join(process.cwd(), 'public', 'images', 'facility', campus)
+  const interiorDir = path.join(process.cwd(), 'public', 'images', 'interior', campus)
+  
+  // Use a map to store images by their number (01 -> id 1, etc.)
+  const imageMap: Record<number, string> = {}
+  
+  const processDir = (dir: string, webPath: string) => {
+    try {
+      if (fs.existsSync(dir)) {
+        fs.readdirSync(dir)
+          .filter((f) => /\.(jpg|jpeg|png|webp|gif)$/i.test(f))
+          .forEach((f) => {
+            const numMatch = f.match(/^(\d+)/)
+            if (numMatch) {
+              const num = parseInt(numMatch[1], 10)
+              // Store if not already exists (priority: interior comes first in the call order)
+              if (!imageMap[num]) {
+                imageMap[num] = `${webPath}/${f}`
+              }
+            }
+          })
+      }
+    } catch (e) {}
   }
 
-  const facilitiesWithImages = defaultFacilities.map((f, i) => ({
+  // Priority order: check interior first, then facility
+  processDir(interiorDir, `/images/interior/${campus}`)
+  processDir(facilityDir, `/images/facility/${campus}`)
+
+  const facilitiesWithImages = defaultFacilities.map((f) => ({
     ...f,
-    image: facilityImages[i] ?? f.image
+    image: imageMap[f.id] ?? f.image
   }))
 
   const getReviewUrl = (campus: string, streamId: string) => {
@@ -85,15 +103,24 @@ export default function StreamPage({
 
           <BlurFade delay={0.2} yOffset={20}>
             <AvailabilityBadge campusName={config.name} />
-            <p className="text-[#0071E3] text-[11px] sm:text-xs font-bold tracking-[0.2em] uppercase mb-4">
-              SSC SPARTA {content.name}
-            </p>
+            <div className="mb-6">
+              {stream === 'gongmuwon' ? (
+                <div className="inline-flex items-center gap-3">
+                  <span className="text-sm md:text-base font-black tracking-tighter text-[#1D1D1F]">SSC 스파르타</span>
+                  <span className="text-xs font-light text-[#86868B] opacity-40">X</span>
+                  <span className="text-sm md:text-base font-black tracking-tight text-[#0071E3]">커넥츠프랩</span>
+                </div>
+              ) : (
+                <p className="text-[#0071E3] text-[11px] sm:text-xs font-bold tracking-[0.2em] uppercase">
+                  SSC SPARTA {content.name}
+                </p>
+              )}
+            </div>
           </BlurFade>
           
           <BlurFade delay={0.3} yOffset={20}>
             <h1 
-              className="text-[#1D1D1F] font-semibold leading-[1.1] tracking-tighter mb-8 text-balance drop-shadow-sm"
-              style={{ fontSize: 'var(--font-size-hero)' }}
+              className="main-title mb-8 text-balance drop-shadow-sm"
             >
               <RhythmicText text={content.hero.title} />
             </h1>

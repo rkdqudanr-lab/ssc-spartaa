@@ -29,22 +29,7 @@ export function Footer() {
       <div className="max-w-[72rem] mx-auto px-4 sm:px-6">
         
         {/* Top Navigation & Family Site */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10 pb-8 border-b border-black/[0.03]">
-          <nav className="flex flex-wrap items-center gap-x-6 gap-y-2">
-            {footerLinks.map((link, i) => (
-              <React.Fragment key={link.label}>
-                <a 
-                  href={link.href} 
-                  className={`text-[13px] ${link.bold ? 'font-bold text-[#1D1D1F]' : 'text-[#86868B]'} hover:text-[#0071E3] transition-colors`}
-                >
-                  {link.label}
-                </a>
-                {i < footerLinks.length - 1 && (
-                  <span className="w-[1px] h-3 bg-black/10 hidden sm:block" />
-                )}
-              </React.Fragment>
-            ))}
-          </nav>
+        <div className="flex flex-col md:flex-row justify-end items-start md:items-center gap-6 mb-10 pb-8 border-b border-black/[0.03]">
 
           <div className="relative w-full md:w-56">
             <button

@@ -9,18 +9,18 @@ import { RhythmicText } from '@/components/ui/rhythmic-text'
 const commitments = [
   {
     id: 1,
-    question: '한계를 넘어서는 고통을|견딜 준비가 되었는가?',
-    desc: 'SSC 스파르타의 관리는 엄격합니다.|단순한 편리함이 아닌, 치열한 인고의 시간을|합격으로 바꾸는 과정입니다.'
+    question: "한계를 넘어서는 고통을\n견딜 준비가 되었는가?",
+    desc: "SSC 스파르타의 관리는 엄격합니다.\n단순한 편리함이 아닌, 치열한 인고의 시간을\n합격으로 바꾸는 과정입니다."
   },
   {
     id: 2,
-    question: '합격이라는 결과 외에|모든 유혹을 끊을 수 있는가?',
-    desc: '스마트폰 수거부터 철저한 인터넷 통제까지.|공부 외의 모든 것에서 완전히 격리될|각오와 용기가 필요합니다.'
+    question: "합격이라는 결과 외에\n모든 유혹을 끊을 수 있는가?",
+    desc: "스마트폰 수거부터 철저한 인터넷 통제까지.\n공부 외의 모든 것에서 완전히 격리될\n각오와 용기가 필요합니다."
   },
   {
     id: 3,
-    question: '시스템의 완벽한 통제에|순응할 각오가 되었는가?',
-    desc: '자기합리화를 버리고 전문가가 설계한|교시제 시스템에 100% 몸을 맡길|준비가 되어야 합니다.'
+    question: "시스템의 완벽한 통제에\n순응할 각오가 되었는가?",
+    desc: "자기합리화를 버리고 전문가가 설계한\n교시제 시스템에 100% 몸을 맡길\n준비가 되어야 합니다."
   }
 ]
 
@@ -38,49 +38,50 @@ export default function CommitmentSection() {
   const isAllChecked = checked.length === commitments.length
 
   return (
-    <section className="py-24 md:py-32 bg-[#F5F5F7] border-t border-black/5">
-      <div className="max-w-[50rem] mx-auto px-4 sm:px-6 text-center">
+    <section className="py-32 md:py-48 bg-[#F5F5F7] border-t border-black/[0.03] overflow-hidden">
+      <div className="max-w-[54rem] mx-auto px-6 sm:px-8 text-center">
         
-        <div className="mb-16">
+        <div className="mb-20 md:mb-28">
           <BlurFade delay={0.1}>
-            <p className="text-[#86868B] text-xs font-bold tracking-[0.3em] uppercase mb-4">Last Check-in</p>
+            <p className="text-[#86868B] text-[11px] font-extrabold tracking-[0.4em] uppercase mb-6 opacity-70">Last Check-in</p>
             <h2 
-              className="text-[#1D1D1F] font-semibold tracking-tighter mb-6 leading-tight text-balance"
-              style={{ fontSize: 'var(--font-size-section-title)' }}
+              className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter mb-10 leading-[1.05] text-balance"
             >
-              <RhythmicText text="입학하기 전,|스스로에게 물으십시오." />
+              <RhythmicText text={"입학하기 전,\n스스로에게 물으십시오."} />
             </h2>
-            <div className="text-[#86868B] text-base md:text-lg font-medium max-w-xl mx-auto break-keep">
-              <RhythmicText text="SSC 스파르타는 모두를 위한 공간이 아닙니다.|오직 합격만이 유일한 목표인 수험생을 위해 존재합니다." />
+            <div className="text-[#434345] text-lg md:text-xl font-semibold max-w-2xl mx-auto break-keep leading-relaxed text-balance">
+              <RhythmicText text={"SSC 스파르타는 모두를 위한 공간이 아닙니다.\n오직 합격만이 유일한 목표인 수험생을 위해 존재합니다."} />
             </div>
           </BlurFade>
         </div>
 
         <div className="space-y-6 text-left">
           {commitments.map((c, i) => (
-            <BlurFade key={c.id} delay={0.3 + i * 0.1} yOffset={20}>
+            <BlurFade key={c.id} delay={0.3 + i * 0.1} yOffset={30}>
               <div 
                 onClick={() => toggle(c.id)}
-                className={`group cursor-pointer rounded-[28px] border-2 p-8 transition-all duration-500 ease-out ${
+                className={`group cursor-pointer rounded-[40px] border-[3px] p-10 transition-all duration-700 ease-out shadow-premium hover:shadow-premium-hover ${
                   checked.includes(c.id) 
-                    ? 'bg-white border-black shadow-[0_15px_40px_-5px_rgba(0,0,0,0.1)]' 
-                    : 'bg-white border-transparent border-black/5 hover:border-black/20'
+                    ? 'bg-white border-[#0071E3] scale-[1.02]' 
+                    : 'bg-white border-transparent hover:border-[#0071E3]/20'
                 }`}
               >
-                <div className="flex items-start gap-6">
-                  <div className={`w-10 h-10 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all duration-500 ${
-                    checked.includes(c.id) ? 'bg-black border-black text-white' : 'border-black/10 text-transparent'
+                <div className="flex items-start gap-8">
+                  <div className={`w-12 h-12 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-all duration-700 ${
+                    checked.includes(c.id) 
+                      ? 'bg-[#0071E3] border-[#0071E3] text-white shadow-[0_10px_30px_rgba(0,113,227,0.3)]' 
+                      : 'border-black/05 text-transparent'
                   }`}>
-                    <Check size={20} strokeWidth={3} />
+                    <Check size={24} strokeWidth={4} />
                   </div>
-                  <div>
-                    <h3 className={`text-xl font-bold tracking-tight mb-2 transition-colors duration-500 ${
+                  <div className="flex-1">
+                    <h3 className={`text-2xl md:text-3xl font-bold tracking-tighter mb-4 transition-colors duration-700 ${
                       checked.includes(c.id) ? 'text-[#1D1D1F]' : 'text-[#86868B]'
                     }`}>
                       <RhythmicText text={c.question} />
                     </h3>
-                    <div className={`text-[15px] font-medium leading-relaxed transition-opacity duration-500 break-keep max-w-[40rem] ${
-                      checked.includes(c.id) ? 'text-[#434345] opacity-100' : 'text-[#86868B] opacity-60'
+                    <div className={`text-base md:text-lg font-semibold leading-relaxed transition-all duration-700 break-keep max-w-[42rem] ${
+                      checked.includes(c.id) ? 'text-[#434345] opacity-100' : 'text-[#86868B] opacity-50'
                     }`}>
                       <RhythmicText text={c.desc} />
                     </div>
@@ -97,18 +98,18 @@ export default function CommitmentSection() {
               {isAllChecked ? (
                 <motion.div
                   key="ready"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  className="bg-white p-12 md:p-16 rounded-[48px] shadow-premium-hover border border-[#0071E3]/10"
                 >
-                  <p className="text-[#0071E3] font-bold text-lg mb-6">당신은 SSC 스파르타의 일원이 될 준비가 되었습니다.</p>
+                  <p className="text-[#0071E3] font-extrabold text-2xl md:text-3xl mb-10 tracking-tight text-balance">당신은 SSC 스파르타의 일원이 될<br /> 준비가 되었습니다.</p>
                   <button 
                     onClick={() => document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="bg-black text-white rounded-full font-bold hover:scale-105 active:scale-95 transition-all shadow-xl shadow-black/20 flex items-center justify-center gap-3 mx-auto group btn-fluid"
-                    style={{ '--btn-padding-y': 'clamp(1rem, 0.9rem + 0.5vw, 1.25rem)', '--btn-padding-x': 'clamp(2rem, 1.8rem + 1vw, 3rem)' } as React.CSSProperties}
+                    className="bg-[#1D1D1F] text-white px-12 py-6 rounded-full font-extrabold text-xl hover:scale-105 active:scale-95 transition-all duration-500 shadow-2xl shadow-black/20 flex items-center justify-center gap-4 mx-auto group"
                   >
                     전문 상담 예약하기
-                    <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight size={26} className="group-hover:translate-x-3 transition-transform" />
                   </button>
                 </motion.div>
               ) : (

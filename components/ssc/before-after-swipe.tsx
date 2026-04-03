@@ -41,11 +41,11 @@ export function BeforeAfterSwipe() {
     <section id="comparison" className="py-24 bg-[#F5F5F7]">
       <div className="max-w-[64rem] mx-auto px-4 sm:px-6">
         <div className="mb-16 text-center">
-            <h2 className="text-3xl md:text-5xl font-semibold text-[#1D1D1F] tracking-tighter mb-4 leading-tight">
-              <RhythmicText text="당신의 1년,|누구와 함께하시겠습니까?" />
+            <h2 className="section-title mb-4 leading-tight">
+              <RhythmicText text={"당신의 1년,\n누구와 함께하시겠습니까?"} />
             </h2>
-            <div className="text-[#86868B] text-lg font-medium leading-relaxed max-w-2xl mx-auto break-keep">
-              <RhythmicText text="슬라이더를 좌우로 밀어서|스파르타가 선사하는 '진짜 몰입'을 체감해 보세요." />
+            <div className="text-[#86868B] font-medium leading-relaxed max-w-2xl mx-auto break-keep" style={{ fontSize: 'var(--font-size-body-lg)' }}>
+              <RhythmicText text={"슬라이더를 좌우로 밀어서\n스파르타가 선사하는 '진짜 몰입'을 체감해 보세요."} />
             </div>
         </div>
 

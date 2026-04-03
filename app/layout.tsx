@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/theme-provider'
+import { Navbar } from '@/components/ssc/navbar'
 import './globals.css'
 
 const inter = Inter({
@@ -36,8 +37,9 @@ export default function RootLayout({
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
         />
       </head>
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} font-sans antialiased text-[#1D1D1F] overflow-x-hidden pt-16 md:pt-20`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+          <Navbar />
           {children}
         </ThemeProvider>
         <Analytics />

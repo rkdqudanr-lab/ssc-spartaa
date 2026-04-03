@@ -12,20 +12,6 @@ import { SpartaPulse } from '@/components/ssc/sparta-pulse'
 import { Footer } from '@/components/ssc/footer'
 import { RhythmicText } from '@/components/ui/rhythmic-text'
 
-/** 폴더에서 첫 번째 이미지 경로를 반환. 없으면 null. */
-function getFirstImage(campus: string): string | null {
-  const dir = path.join(process.cwd(), 'public', 'images', 'main', campus)
-  try {
-    const files = fs.readdirSync(dir)
-    const first = files
-      .filter((f) => /\.(jpg|jpeg|png|webp|gif)$/i.test(f))
-      .sort()[0]
-    return first ? `/images/main/${campus}/${first}` : null
-  } catch {
-    return null
-  }
-}
-
 const locations = [
   {
     id: 'wonju',
@@ -68,47 +54,50 @@ const locations = [
 const programs = ['공무원', '임용고시', '전문자격', '독학재수']
 
 export default function SelectLocation() {
-  const images = Object.fromEntries(
-    locations.map((loc) => [loc.id, getFirstImage(loc.id)])
-  )
+  const images: Record<string, string> = {
+    wonju: '/images/campus-wonju.jpg',
+    chuncheon: '/images/campus-chuncheon.png',
+    chungju: '/images/campus-chungju.png',
+  }
 
   return (
     <main className="relative min-h-screen bg-[#F5F5F7] flex flex-col font-sans overflow-hidden text-[#1D1D1F] selection:bg-black/10 selection:text-black transition-colors duration-500">
       
       {/* Background Soft Glow (Clean Apple Light) */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[0%] left-[50%] -translate-x-1/2 w-[80%] h-[30%] bg-white/60 blur-[100px] rounded-[100%]" />
+        <div className="absolute top-[0%] left-[50%] -translate-x-1/2 w-[100%] h-[40%] bg-gradient-to-b from-white/80 via-white/40 to-transparent blur-[120px] rounded-[100%]" />
+        <div className="absolute bottom-[10%] right-[0%] w-[50%] h-[30%] bg-[#0071E3]/05 blur-[120px] rounded-full" />
       </div>
 
       <div className="relative z-10 flex flex-col flex-1">
         {/* Header Section */}
-        <header className="pt-28 pb-14 px-4 text-center">
+        <header className="pt-16 md:pt-24 pb-20 px-6 text-center max-w-5xl mx-auto">
           <BlurFade delay={0.1} yOffset={20}>
-            <p className="text-[#86868B] text-[10px] sm:text-xs font-semibold tracking-[0.3em] uppercase mb-4">
+            <p className="text-[#86868B] text-[10px] sm:text-xs font-bold tracking-[0.4em] uppercase mb-6 opacity-80">
               Supreme Spartan Control
             </p>
           </BlurFade>
           
           <BlurFade delay={0.2} yOffset={20}>
-            <h1 className="text-[#1D1D1F] text-[2.5rem] sm:text-5xl md:text-7xl font-semibold leading-[1.1] tracking-tighter mb-6">
+            <h1 className="main-title mb-8">
               <RhythmicText 
-                text="완벽한 통제,|그 이상의 결과."
+                text={"완벽한 통제,\n그 이상의 결과."}
                 className="inline-block"
               />
             </h1>
           </BlurFade>
           
           <BlurFade delay={0.3} yOffset={20}>
-            <div className="text-[#86868B] text-sm sm:text-base md:text-xl font-medium max-w-2xl mx-auto leading-relaxed tracking-tight">
+            <div className="text-[#434345] text-base sm:text-lg md:text-2xl font-medium max-w-3xl mx-auto leading-relaxed tracking-tight text-balance">
               <RhythmicText 
-                text="가장 본질적인 것에 집중하십시오.|압도적인 집중 환경과 노량진 시스템이|당신의 단기 합격을 증명합니다."
+                text={"가장 본질적인 것에 집중하십시오.\n압도적인 집중 환경과 노량진 시스템이\n당신의 단기 합격을 증명합니다."}
               />
             </div>
           </BlurFade>
         </header>
 
         {/* Categories badge strip */}
-        <div className="px-4 mb-20 md:mb-24">
+        <div id="programs" className="scroll-mt-32 px-4 mb-20 md:mb-24">
           <BlurFade delay={0.4} yOffset={10}>
             <div className="max-w-2xl mx-auto grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-3 sm:gap-4">
               {programs.map((p) => (
@@ -132,47 +121,47 @@ export default function SelectLocation() {
         <BrainScience />
 
         {/* Location cards - 3 items centered */}
-        <div className="flex-1 px-4 py-28">
-          <div className="max-w-[64rem] mx-auto text-center mb-16">
+        <div id="campuses" className="flex-1 px-6 py-32 md:py-48 bg-white/30 scroll-mt-32">
+          <div className="max-w-[72rem] mx-auto text-center mb-20 md:mb-24">
             <BlurFade delay={0.1}>
-              <p className="text-[#0071E3] text-[10px] font-bold tracking-[0.2em] uppercase mb-4">Campuses</p>
-              <h2 className="text-[#1D1D1F] text-3xl md:text-5xl font-semibold tracking-tighter">당신의 단기합격을 증명할 장소</h2>
+              <p className="text-[#0071E3] text-[11px] font-extrabold tracking-[0.25em] uppercase mb-5">Campuses</p>
+              <h2 className="text-[#1D1D1F] text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-balance">당신의 단기합격을 증명할 장소</h2>
             </BlurFade>
           </div>
-          <div className="max-w-[54rem] mx-auto flex flex-col md:flex-row gap-6 md:gap-8 justify-center">
+          <div className="max-w-[64rem] mx-auto flex flex-col md:flex-row gap-8 md:gap-10 justify-center">
             {locations.map((loc, idx) => {
               const image = images[loc.id]
               return (
                 <BlurFade key={loc.id} delay={0.5 + idx * 0.15} yOffset={30} className="w-full">
                   <Link href={loc.href} className="block outline-none w-full">
                     <TiltCard>
-                      <div className="group relative rounded-[24px] overflow-hidden min-h-[360px] md:min-h-[460px] flex flex-col justify-between bg-white border border-black/[0.04]">
+                      <div className="group relative rounded-[32px] overflow-hidden min-h-[400px] md:min-h-[500px] flex flex-col justify-between bg-white border border-black/[0.03] shadow-premium hover:shadow-premium-hover transition-all duration-500 ease-out">
                         
                         {/* Image Header Area in Card */}
-                        <div className="h-[45%] md:h-[50%] relative overflow-hidden bg-[#F5F5F7] border-b border-black/[0.03]">
+                        <div className="h-[200px] md:h-[250px] relative overflow-hidden bg-[#F5F5F7]">
                           {image && (
                             <Image
                               src={image}
                               alt={`${loc.name} 캠퍼스`}
                               fill
-                              className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-[1.05]"
+                              className="object-cover transition-transform duration-[2s] ease-out group-hover:scale-[1.08]"
                             />
                           )}
-                          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent opacity-80" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/10 to-transparent opacity-90" />
                         </div>
 
                         {/* Content Area */}
-                        <div className="flex flex-col flex-1 p-6 relative z-10 bg-white">
-                          <div className="flex items-start justify-between gap-2 mb-4">
+                        <div className="flex flex-col flex-1 p-8 md:p-10 relative z-10 bg-white">
+                          <div className="flex items-start justify-between gap-4 mb-6">
                             <div>
-                              <p className="text-[#86868B] text-[10px] font-bold tracking-[0.2em] uppercase mb-1">
+                              <p className="text-[#86868B] text-[10px] font-bold tracking-[0.25em] uppercase mb-2">
                                 {loc.id} CAMPUS
                               </p>
-                              <h2 className="text-[#1D1D1F] text-2xl sm:text-3xl font-semibold tracking-tighter mb-1">{loc.name}</h2>
-                              <p className="font-medium text-xs sm:text-sm text-[#434345] tracking-tight whitespace-pre-line">{loc.tagline}</p>
+                              <h2 className="text-[#1D1D1F] text-3xl md:text-4xl font-bold tracking-tighter mb-2">{loc.name}</h2>
+                              <p className="font-semibold text-xs sm:text-sm text-[#434345] tracking-tight whitespace-pre-line leading-relaxed">{loc.tagline}</p>
                             </div>
-                            <div className="w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center flex-shrink-0 bg-[#F5F5F7] text-[#1D1D1F] group-hover:bg-black group-hover:text-white transition-all duration-300 ease-out shadow-sm group-hover:shadow-md">
-                              <ChevronRight size={18} />
+                            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center flex-shrink-0 bg-[#F5F5F7] text-[#1D1D1F] group-hover:bg-[#0071E3] group-hover:text-white transition-all duration-500 ease-out shadow-sm group-hover:shadow-lg group-hover:-translate-y-1">
+                              <ChevronRight size={20} />
                             </div>
                           </div>
 
@@ -181,7 +170,7 @@ export default function SelectLocation() {
                               <li key={i} className="flex items-start gap-2">
                                 <span className="text-[#86868B] mt-[2px] text-[10px]">✦</span>
                                 <div className="text-[#434345] text-xs sm:text-sm font-medium tracking-tight leading-snug">
-                                  <RhythmicText text={h.replace(/\n/g, '|')} />
+                                  <RhythmicText text={h} />
                                 </div>
                               </li>
                             ))}

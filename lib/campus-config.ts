@@ -21,7 +21,7 @@ export const CAMPUS_CONFIG = {
     naverMapUrl: 'https://naver.me/xAFXrxdb',
     kakaoUrl: 'https://pf.kakao.com/_example',
     naverTalkUrl: 'https://talk.naver.com/ct/w4zhf8',
-    image: '/images/campus-wonju.jpg',
+    image: '/images/main/wonju/01 원주전면.jpg',
   },
   chuncheon: {
     name: '춘천',
@@ -32,7 +32,7 @@ export const CAMPUS_CONFIG = {
     naverMapUrl: 'https://naver.me/5RhgAeoi',
     kakaoUrl: 'https://pf.kakao.com/_example',
     naverTalkUrl: 'https://talk.naver.com/ct/w4kwt8?frm=mnmb&frm=nmb_detail#nafullscreen',
-    image: '/images/campus-chuncheon.jpg',
+    image: '/images/main/chuncheon/01 춘천정면.jpg',
   },
   chungju: {
     name: '충주',
@@ -43,7 +43,7 @@ export const CAMPUS_CONFIG = {
     naverMapUrl: 'https://naver.me/xmxZQakb',
     kakaoUrl: 'https://pf.kakao.com/_example',
     naverTalkUrl: 'https://talk.naver.com/ct/w40pkj?frm=mnmb&frm=nmb_detail#nafullscreen',
-    image: '/images/campus-chungju.jpg',
+    image: '/images/main/chungju/01.png',
   },
 }
 

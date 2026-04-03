@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { usePathname, useRouter } from 'next/navigation'
 import useSWR from 'swr'
 import type { SiteContent } from '@/lib/content'
+import { RhythmicText } from '@/components/ui/rhythmic-text'
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
@@ -147,17 +148,16 @@ export function HeroSlider({ slides: slidesProp }: { slides?: typeof defaultSlid
                       PREMIUM SPARTAN CENTER
                     </p>
                     <h1
-                      className="text-[#1D1D1F] font-semibold leading-[1.05] tracking-tighter mb-8 whitespace-pre-wrap display-title drop-shadow-sm text-balance"
-                      style={{ fontSize: 'var(--font-size-hero)', wordBreak: 'keep-all' }}
+                      className="main-title mb-8 display-title drop-shadow-sm text-balance"
                     >
-                      {slide.title}
+                      <RhythmicText text={slide.title} />
                     </h1>
-                    <p className="text-[#434345] text-lg sm:text-xl md:text-2xl font-medium tracking-tight mb-4 whitespace-pre-line break-keep">
-                      {slide.subtitle}
+                    <p className="text-[#434345] font-medium tracking-tight mb-4 text-balance" style={{ fontSize: 'var(--font-size-body-lg)' }}>
+                      <RhythmicText text={slide.subtitle} />
                     </p>
                     {slide.description && (
-                      <p className="text-[#86868B] text-sm sm:text-base md:text-lg mb-8 leading-relaxed max-w-xl font-medium tracking-tight whitespace-pre-line break-keep">
-                        {slide.description}
+                      <p className="text-[#86868B] text-sm sm:text-base md:text-lg mb-8 leading-relaxed max-w-xl font-medium tracking-tight text-balance">
+                        <RhythmicText text={slide.description} />
                       </p>
                     )}
 
