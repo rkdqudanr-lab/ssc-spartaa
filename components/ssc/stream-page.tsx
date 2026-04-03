@@ -91,13 +91,19 @@ export default function StreamPage({
           </BlurFade>
           
           <BlurFade delay={0.3} yOffset={20}>
-            <h1 className="text-[#1D1D1F] text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.2] tracking-tighter mb-6">
+            <h1 
+              className="text-[#1D1D1F] font-semibold leading-[1.1] tracking-tighter mb-8 text-balance drop-shadow-sm"
+              style={{ fontSize: 'var(--font-size-hero)' }}
+            >
               <RhythmicText text={content.hero.title} />
             </h1>
           </BlurFade>
 
           <BlurFade delay={0.4} yOffset={20}>
-            <div className="text-[#434345] text-lg sm:text-xl font-medium tracking-tight mb-4">
+            <div 
+              className="text-[#434345] font-medium tracking-tight mb-6 text-balance"
+              style={{ fontSize: 'var(--font-size-body-lg)' }}
+            >
               <RhythmicText text={content.hero.subtitle} />
             </div>
           </BlurFade>
@@ -111,10 +117,10 @@ export default function StreamPage({
           )}
 
           <BlurFade delay={0.6} yOffset={20}>
-            <div className="mt-10">
+            <div className="mt-12">
                <a 
                  href="#cta" 
-                 className="inline-flex items-center px-8 py-4 rounded-full bg-[#1D1D1F] text-white text-sm font-semibold hover:bg-black hover:scale-105 active:scale-95 transition-all shadow-[0_4px_14px_rgba(0,0,0,0.15)]"
+                 className="inline-flex items-center rounded-full bg-[#1D1D1F] text-white font-semibold hover:bg-black hover:scale-105 active:scale-95 transition-all shadow-[0_4px_14px_rgba(0,0,0,0.15)] btn-fluid"
                >
                  상담 예약하기
                </a>

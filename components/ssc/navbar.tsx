@@ -94,7 +94,8 @@ export function Navbar() {
           {/* Desktop CTA */}
           <button
             onClick={() => handleLink('#cta')}
-            className="hidden md:inline-flex items-center px-4 py-2 rounded-full bg-[#1D1D1F] text-white text-[13px] font-medium hover:scale-105 hover:bg-black transition-all hover:shadow-[0_4px_14px_rgba(0,0,0,0.15)]"
+            className="hidden md:inline-flex items-center rounded-full bg-[#1D1D1F] text-white font-medium hover:scale-105 hover:bg-black transition-all hover:shadow-[0_4px_14px_rgba(0,0,0,0.15)] btn-fluid"
+            style={{ '--btn-padding-y': '0.5rem', '--btn-padding-x': '1.25rem' } as React.CSSProperties}
           >
             무료 상담
           </button>

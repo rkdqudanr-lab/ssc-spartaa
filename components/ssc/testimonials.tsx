@@ -53,7 +53,10 @@ export function Testimonials({
         {/* Heading */}
         <div className="mb-16 text-center fade-in-up">
           <p className="text-[#0071E3] text-[11px] sm:text-xs font-bold tracking-[0.2em] uppercase mb-4">학생들의 치열한 기록</p>
-          <h2 className="text-3xl md:text-5xl font-semibold text-[#1D1D1F] tracking-tighter mb-4 whitespace-pre-line break-keep drop-shadow-sm">
+          <h2 
+            className="font-semibold text-[#1D1D1F] tracking-tighter mb-6 whitespace-pre-line break-keep drop-shadow-sm text-balance"
+            style={{ fontSize: 'var(--font-size-section-title)' }}
+          >
             고통의 시간 끝에 얻어낸{'\n'}
             합격의 희열
           </h2>

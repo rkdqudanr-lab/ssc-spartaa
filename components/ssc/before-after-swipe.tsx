@@ -3,6 +3,7 @@
 import { useRef } from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { Smartphone, BookOpen, Coffee, Clock, LucideIcon } from 'lucide-react'
+import { RhythmicText } from '@/components/ui/rhythmic-text'
 
 function Badge({ icon: Icon, label, color }: { icon: LucideIcon; label: string; color: string }) {
   return (
@@ -40,14 +41,12 @@ export function BeforeAfterSwipe() {
     <section id="comparison" className="py-24 bg-[#F5F5F7]">
       <div className="max-w-[64rem] mx-auto px-4 sm:px-6">
         <div className="mb-16 text-center">
-            <h2 className="text-3xl md:text-5xl font-semibold text-[#1D1D1F] tracking-tighter mb-4 whitespace-pre-line break-keep leading-tight">
-              당신의 1년,{'\n'}
-              누구와 함께하시겠습니까?
+            <h2 className="text-3xl md:text-5xl font-semibold text-[#1D1D1F] tracking-tighter mb-4 leading-tight">
+              <RhythmicText text="당신의 1년,|누구와 함께하시겠습니까?" />
             </h2>
-            <p className="text-[#86868B] text-lg font-medium leading-relaxed max-w-2xl mx-auto whitespace-pre-line break-keep">
-              슬라이더를 좌우로 밀어서{'\n'}
-              스파르타가 선사하는 '진짜 몰입'을 체감해 보세요.
-            </p>
+            <div className="text-[#86868B] text-lg font-medium leading-relaxed max-w-2xl mx-auto break-keep">
+              <RhythmicText text="슬라이더를 좌우로 밀어서|스파르타가 선사하는 '진짜 몰입'을 체감해 보세요." />
+            </div>
         </div>
 
         <div 
@@ -60,12 +59,9 @@ export function BeforeAfterSwipe() {
           <div className="absolute inset-0 bg-[#E5E5EA] overflow-hidden">
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-12">
                {/* Impact Graphic: Alone */}
-               <div className="mb-12 flex flex-col items-center">
-                  <span className="text-[#86868B] text-sm font-bold tracking-widest uppercase mb-2">Weekly Focus</span>
-                  <div className="text-[6rem] md:text-[8rem] font-black text-[#86868B]/30 leading-none tracking-tighter">15<span className="text-[2rem] ml-1">h</span></div>
-                  <p className="text-[#86868B] font-bold text-lg mt-4">집·스터디카페 평균 순공 시간</p>
-                  <div className="mt-8 px-6 py-3 rounded-2xl bg-white/40 border border-white/60 text-[#86868B] font-extrabold text-[1.5rem]">합격까지 예상 소요 기간: <span className="text-[#FF3B30]">4년+</span></div>
-               </div>
+                   <div className="text-[5rem] md:text-[8rem] font-black text-[#86868B]/30 leading-none tracking-tighter">15<span className="text-[1.5rem] ml-1">h</span></div>
+                   <p className="text-[#86868B] font-bold text-base md:text-lg mt-4">집·스터디카페 평균 순공 시간</p>
+                   <div className="mt-8 px-5 py-3 rounded-2xl bg-white/40 border border-white/60 text-[#86868B] font-extrabold text-[1.1rem] md:text-[1.5rem] break-keep">합격까지 예상 소요 기간: <span className="text-[#FF3B30]">4년+</span></div>
 
                <div className="max-w-xs md:max-w-md opacity-40">
                    <h3 className="text-2xl md:text-4xl font-black text-[#1D1D1F] tracking-widest uppercase mb-4">ALONE</h3>
@@ -88,17 +84,17 @@ export function BeforeAfterSwipe() {
           >
              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-12">
                 {/* Impact Graphic: Sparta */}
-                <div className="mb-12 flex flex-col items-center">
+                 <div className="mb-12 flex flex-col items-center">
                   <span className="text-white/60 text-sm font-bold tracking-widest uppercase mb-2">Weekly Focus</span>
                   <motion.div 
                     initial={{ scale: 0.9 }}
                     whileInView={{ scale: 1 }}
-                    className="text-[6.5rem] md:text-[9rem] font-black text-white leading-none tracking-tighter drop-shadow-2xl"
+                    className="text-[5.5rem] md:text-[9rem] font-black text-white leading-none tracking-tighter drop-shadow-2xl"
                   >
-                    60<span className="text-[2.5rem] ml-1">h</span>
+                    60<span className="text-[2rem] ml-1">h</span>
                   </motion.div>
-                  <p className="text-white font-bold text-lg mt-4">스파르타 강제 통제 순공 시간</p>
-                  <div className="mt-8 px-8 py-3 rounded-2xl bg-white text-[#0071E3] font-black text-[1.75rem] shadow-xl">합격 기간 단축: <span className="underline decoration-4">단 1년</span></div>
+                  <p className="text-white font-bold text-base md:text-lg mt-4">스파르타 강제 통제 순공 시간</p>
+                  <div className="mt-8 px-6 py-3 rounded-2xl bg-white text-[#0071E3] font-black text-[1.2rem] md:text-[1.75rem] shadow-xl break-keep">합격 기간 단축: <span className="underline decoration-4">단 1년</span></div>
                </div>
 
                <div className="max-w-xs md:max-w-md mb-6">

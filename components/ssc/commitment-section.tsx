@@ -44,8 +44,11 @@ export default function CommitmentSection() {
         <div className="mb-16">
           <BlurFade delay={0.1}>
             <p className="text-[#86868B] text-xs font-bold tracking-[0.3em] uppercase mb-4">Last Check-in</p>
-            <h2 className="text-[#1D1D1F] text-3xl md:text-5xl font-semibold tracking-tighter mb-6 leading-tight">
-              <RhythmicText text="입학하기 전,|스스로에게 물으십시오." inline />
+            <h2 
+              className="text-[#1D1D1F] font-semibold tracking-tighter mb-6 leading-tight text-balance"
+              style={{ fontSize: 'var(--font-size-section-title)' }}
+            >
+              <RhythmicText text="입학하기 전,|스스로에게 물으십시오." />
             </h2>
             <div className="text-[#86868B] text-base md:text-lg font-medium max-w-xl mx-auto break-keep">
               <RhythmicText text="SSC 스파르타는 모두를 위한 공간이 아닙니다.|오직 합격만이 유일한 목표인 수험생을 위해 존재합니다." />
@@ -74,7 +77,7 @@ export default function CommitmentSection() {
                     <h3 className={`text-xl font-bold tracking-tight mb-2 transition-colors duration-500 ${
                       checked.includes(c.id) ? 'text-[#1D1D1F]' : 'text-[#86868B]'
                     }`}>
-                      <RhythmicText text={c.question} inline />
+                      <RhythmicText text={c.question} />
                     </h3>
                     <div className={`text-[15px] font-medium leading-relaxed transition-opacity duration-500 break-keep max-w-[40rem] ${
                       checked.includes(c.id) ? 'text-[#434345] opacity-100' : 'text-[#86868B] opacity-60'
@@ -101,7 +104,8 @@ export default function CommitmentSection() {
                   <p className="text-[#0071E3] font-bold text-lg mb-6">당신은 SSC 스파르타의 일원이 될 준비가 되었습니다.</p>
                   <button 
                     onClick={() => document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="px-12 py-5 bg-black text-white rounded-full font-bold text-lg hover:scale-105 active:scale-95 transition-all shadow-xl shadow-black/20 flex items-center gap-3 mx-auto group"
+                    className="bg-black text-white rounded-full font-bold hover:scale-105 active:scale-95 transition-all shadow-xl shadow-black/20 flex items-center justify-center gap-3 mx-auto group btn-fluid"
+                    style={{ '--btn-padding-y': 'clamp(1rem, 0.9rem + 0.5vw, 1.25rem)', '--btn-padding-x': 'clamp(2rem, 1.8rem + 1vw, 3rem)' } as React.CSSProperties}
                   >
                     전문 상담 예약하기
                     <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />

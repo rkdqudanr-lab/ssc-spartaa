@@ -117,10 +117,10 @@ export function SpartaPulse() {
             >
                <a 
                  href="#cta" 
-                 className="group relative inline-flex items-center gap-3 px-10 py-5 bg-[#ffffff] text-[#000000] rounded-full text-lg font-bold shadow-[0_10px_30px_rgba(255,255,255,0.1)] hover:shadow-[0_20px_50px_rgba(255,255,255,0.2)] transition-all break-keep"
+                 className="group relative inline-flex items-center gap-2 md:gap-3 px-6 py-4 md:px-10 md:py-5 bg-[#ffffff] text-[#000000] rounded-full text-base md:text-lg font-bold shadow-[0_10px_30px_rgba(255,255,255,0.1)] hover:shadow-[0_20px_50px_rgba(255,255,255,0.2)] transition-all break-keep"
                >
-                 <RhythmicText text="당신의 자리를|지금 확보하세요" className="md:inline" />
-                 <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                 <RhythmicText text="당신의 자리를|지금 확보하세요" />
+                 <ArrowRight size={18} className="md:size-[22px] group-hover:translate-x-1 transition-transform flex-shrink-0" />
                </a>
             </motion.div>
           </div>

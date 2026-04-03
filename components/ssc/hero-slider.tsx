@@ -147,8 +147,8 @@ export function HeroSlider({ slides: slidesProp }: { slides?: typeof defaultSlid
                       PREMIUM SPARTAN CENTER
                     </p>
                     <h1
-                      className="text-[#1D1D1F] text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-semibold leading-[1.05] tracking-tighter mb-6 whitespace-pre-wrap display-title drop-shadow-sm"
-                      style={{ wordBreak: 'keep-all' }}
+                      className="text-[#1D1D1F] font-semibold leading-[1.05] tracking-tighter mb-8 whitespace-pre-wrap display-title drop-shadow-sm text-balance"
+                      style={{ fontSize: 'var(--font-size-hero)', wordBreak: 'keep-all' }}
                     >
                       {slide.title}
                     </h1>
@@ -163,19 +163,19 @@ export function HeroSlider({ slides: slidesProp }: { slides?: typeof defaultSlid
 
                     {/* CTAs */}
                     <div className="flex flex-col sm:flex-row gap-4 mt-8 flex-wrap">
-                      <button
-                        onClick={() => {
-                          const programId = (slide as { programId?: string }).programId
-                          if (programId) {
-                            router.push(`/${campusPath}/${programId}`)
-                          } else {
-                            scroll('cta')
-                          }
-                        }}
-                        className="px-8 py-4 rounded-full font-bold text-[16px] transition-all duration-300 bg-[#1D1D1F] text-white shadow-[0_4px_14px_rgba(0,0,0,0.15)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.2)] hover:bg-black hover:scale-105 active:scale-95"
-                      >
-                        {slide.ctaLabel}
-                      </button>
+                        <button
+                          onClick={() => {
+                            const programId = (slide as { programId?: string }).programId
+                            if (programId) {
+                              router.push(`/${campusPath}/${programId}`)
+                            } else {
+                              scroll('cta')
+                            }
+                          }}
+                          className="rounded-full font-bold transition-all duration-300 bg-[#1D1D1F] text-white shadow-[0_4px_14px_rgba(0,0,0,0.15)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.2)] hover:bg-black hover:scale-105 active:scale-95 btn-fluid"
+                        >
+                          {slide.ctaLabel}
+                        </button>
                     </div>
                   </div>
                 </div>

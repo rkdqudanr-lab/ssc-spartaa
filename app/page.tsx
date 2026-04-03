@@ -90,21 +90,20 @@ export default function SelectLocation() {
           </BlurFade>
           
           <BlurFade delay={0.2} yOffset={20}>
-            <h1 className="text-[#1D1D1F] text-[2.5rem] sm:text-5xl md:text-7xl font-semibold leading-[1.1] tracking-tighter mb-6 break-keep">
-              <RhythmicText
+            <h1 className="text-[#1D1D1F] text-[2.5rem] sm:text-5xl md:text-7xl font-semibold leading-[1.1] tracking-tighter mb-6">
+              <RhythmicText 
                 text="완벽한 통제,|그 이상의 결과."
-                inline
+                className="inline-block"
               />
             </h1>
           </BlurFade>
           
           <BlurFade delay={0.3} yOffset={20}>
-            <p className="text-[#86868B] text-sm sm:text-base md:text-xl font-medium max-w-2xl mx-auto leading-relaxed tracking-tight break-keep">
-              <RhythmicText
+            <div className="text-[#86868B] text-sm sm:text-base md:text-xl font-medium max-w-2xl mx-auto leading-relaxed tracking-tight">
+              <RhythmicText 
                 text="가장 본질적인 것에 집중하십시오.|압도적인 집중 환경과 노량진 시스템이|당신의 단기 합격을 증명합니다."
-                inline
               />
-            </p>
+            </div>
           </BlurFade>
         </header>
 
