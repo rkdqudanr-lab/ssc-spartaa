@@ -28,7 +28,7 @@ export function Testimonials({
   }
 
   return (
-    <section id="testimonials" className="relative pt-24 sm:pt-32 pb-0 overflow-hidden bg-[#F5F5F7]" ref={ref}>
+    <section id="testimonials" className="relative pt-24 sm:pt-32 pb-12 overflow-hidden bg-[#F5F5F7]" ref={ref}>
       {bgImage && (
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
           {/* Base Image with Parallax-like attachment */}
