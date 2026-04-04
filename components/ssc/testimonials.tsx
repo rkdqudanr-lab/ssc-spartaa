@@ -93,7 +93,7 @@ export function Testimonials({
 
         {/* 더보기 링크 */}
         {reviewUrl && (
-          <div className="fade-in-up delay-400 flex justify-center mt-8">
+          <div className="fade-in-up delay-400 flex justify-center mt-24">
             <a
               href={reviewUrl}
               target="_blank"
