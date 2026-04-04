@@ -93,12 +93,12 @@ export function Testimonials({
 
         {/* 더보기 링크 */}
         {reviewUrl && (
-          <div className="fade-in-up delay-400 flex justify-center mt-12">
+          <div className="fade-in-up delay-400 flex justify-center mt-8">
             <a
               href={reviewUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border border-black/10 text-[15px] font-semibold text-[#1D1D1F] hover:bg-[#1D1D1F] hover:text-white hover:border-black transition-all"
+              className="inline-flex items-center gap-4 pl-10 pr-14 py-3.5 rounded-full border border-black/10 text-[15px] font-semibold text-[#1D1D1F] hover:bg-[#1D1D1F] hover:text-white hover:border-black transition-all"
             >
               블로그에서 생생한 후기 더보기
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -15,7 +15,7 @@ const SCHEDULE = [
 export function TimelineView() {
   return (
     <section id="timeline" className="pb-24 md:pb-32 pt-0 bg-[#F5F5F7] overflow-hidden">
-      <div className="max-w-[72rem] mx-auto px-6 sm:px-8">
+      <div className="max-w-[72rem] mx-auto px-6 sm:px-8 -mt-8 md:-mt-12">
         <div className="mb-12 md:mb-16 text-center fade-in-up">
             <p className="text-[#0071E3] text-[11px] sm:text-xs font-extrabold tracking-[0.3em] uppercase mb-6 opacity-80">Daily Workflow</p>
             <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-[#1D1D1F] tracking-tighter mb-8 leading-[1.05] text-balance">
